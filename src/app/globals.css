@@ -1,26 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Use The layer base! Prevents issues with applying margins inline styles not working */
+@layer base{ *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 }
+@theme {
+  --color-choco: #86563c;
+  /* Fonts */
+  --font-body: "Inter", sans-serif;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Theme Colors - Change Colors Here with different color codes */
+  /* Tan*/
+  --color-background-base: #F1EDE3; 
+
+  /* main body text */
+  --color-dark-text: #1B150E; 
+
+  /* blues */
+  --color-primary-base: #12BFCE;
+  --color-primary-base-2: #64D1E4;
+  --color-primary-base-3: #B5E2FA;
+
+  /* orange */
+  --color-secondary-base: #F86624;
+  --color-secondary-base-2: #F88344B;
+  --color-secondary-base-3: #F7A072;
+
+  /* Additional Custom Breakpoints for smaller mobile sizes */
+  --breakpoint-xxs: 20rem; /* 320px */
+  --breakpoint-xs: 30rem; /* 480px */
 }
