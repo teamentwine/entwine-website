@@ -24,6 +24,9 @@
   /* main body text */
   --color-dark-text: #1B150E; 
 
+  /* Dark */
+  --color-background-dark: #282315;
+
   /* blues */
   --color-primary-base: #12BFCE;
   --color-primary-base-2: #64D1E4;
@@ -37,4 +40,36 @@
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
+}
+
+/* Top Navigation Bar */
+.topbar{
+  @apply
+  md:pt-5 md:pb-5 xxs:pt-2 xxs:pb-2
+}
+.svg {
+  @apply
+    w-full
+}
+.socials{
+  @apply
+  md:space-x-5 xxs:space-x-2
+}
+.social-link-icon{
+  @apply
+  md:w-7 sm:w-5 xxs:w-3
+}
+.profile-link-icon{
+  @apply
+  sm:w-8 xxs:w-5
+  mr-3
+}
+.user p{
+  @apply
+  text-xl sm:text-xl xxs:text-xs
+}
+.mobile-menu-icon{
+  @apply
+  sm:w-10 xxs:w-7
+  md:hidden xxs:block
 }
