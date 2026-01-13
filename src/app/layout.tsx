@@ -1,5 +1,7 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
+import Footerbar from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Entwine",
@@ -15,7 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <head><title>Entwine</title></head>
       <body>
+        <Navbar/>
         {children}
+        <Footerbar />
       </body>
     </html>
   );

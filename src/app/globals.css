@@ -24,17 +24,126 @@
   /* main body text */
   --color-dark-text: #1B150E; 
 
+  /* Dark */
+  --color-background-dark: #282315;
+  --color-dark-border: #1B150E; 
+ 
+
   /* blues */
   --color-primary-base: #12BFCE;
   --color-primary-base-2: #64D1E4;
   --color-primary-base-3: #B5E2FA;
+  --drop-shadow-primary: 0px 5px 1px #18BFCC;
 
   /* orange */
   --color-secondary-base: #F86624;
   --color-secondary-base-2: #F88344B;
   --color-secondary-base-3: #F7A072;
+  --drop-shadow-secondary: 0px 5px 1px #F76725;
 
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
+}
+
+/* Top Bar */
+.topbar{
+  @apply
+  md:py-5 xxs:py-2
+}
+.svg {
+  @apply
+    w-full
+}
+.socials{
+  @apply
+  md:space-x-5 xxs:space-x-2
+}
+.social-link-icon{
+  @apply
+  md:w-7 sm:w-5 xxs:w-3
+}
+.profile-link-icon{
+  @apply
+  sm:w-8 xxs:w-5
+  mr-3
+}
+.user p, .login-signup p{
+  @apply
+  sm:text-xl xxs:text-xs
+}
+.login-signup {
+  @apply
+  space-x-2
+}
+.logoImage{
+  @apply
+  xxs:pt-2 
+  xxs:pb-3
+  lg:w-60 md:w-40 sm:w-50 xxs:w-30
+  xl:mr-0 lg:mr-10 md:mr-5
+}
+/* menu area */
+.nav-area{
+  @apply
+  xl:justify-evenly md:justify-center
+  md:items-center
+  md:flex-row xxs:flex-col
+  md:py-4
+  xxs:border-b-3 border-background-dark
+}
+.menu-nav-container{
+    @apply
+    md:block xxs:hidden
+}
+.menu-nav-container div{
+  @apply
+  space-x-3
+}
+.menu-btns{
+  @apply
+  border-2 border-dark-border
+  lg:rounded-3xl md:rounded-2xl
+  py-1 px-5
+  font-body font-light
+  lg:text-xl md:text-sm
+}
+/* mobile versio of nav area */
+.mobile-menu-icon{
+  @apply
+  sm:w-10 xxs:w-7
+  md:hidden xxs:block
+}
+.mobile-logo-border{
+  @apply
+  drop-shadow-lg drop-shadow-gray-500
+}
+.mobile-menu-view{
+  @apply
+  flex flex-col
+  text-left
+  xxs:mx-10
+  xxs:py-10
+}
+.mobile-menu-view div{
+  @apply
+  flex flex-col
+  xxs:space-y-2
+  xxs:pt-5
+}
+.mobile-menu-view p{
+  @apply
+  border-b-2 border-dark-border
+  xxs:pb-5
+  xxs:tracking-[8]
+  xxs:text-2xl
+  xxs:w-full
+}
+.mobile-menu-view button{
+  @apply
+  border-none
+  drop-shadow-none
+  bg-transparent
+  py-0 px-0
+  sm:text-2xl xxs:text-xl
 }
