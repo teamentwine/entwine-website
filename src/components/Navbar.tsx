@@ -35,7 +35,7 @@ export default function Navbar () {
                             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                         </svg>
                     </Link>
-                    <p>Hello, Sierra</p>
+                    <p className="font-body">Hello, Sierra</p>
                 </div>
                 {/* <div className="login-signup">
                 </div> */}
@@ -49,13 +49,17 @@ export default function Navbar () {
                 </div>
             </div>
 
-            <div className="nav-area">
-                <div className="mobile-brand bg-background-base flex flex-col align-center items-center">
-                    <Image src={logo} alt="entwine logo" className="border-2 pt-5 pb-5"/>
+            <div className="nav-area flex bg-background-base">
+                <div className="mobile-brand flex flex-col align-center items-center">
+                    <Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/>
                 </div>
-                {/* <div className="desktop-nav">
-
-                </div> */}
+                <div className="desktop-nav">
+                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">about</button></Link>
+                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">volunteer</button></Link>
+                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">waitlist</button></Link>
+                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">platform</button></Link>
+                    <Link href="#"><button className="menu-btns bg-secondary-base-3 drop-shadow-secondary">donate</button></Link>
+                </div>
 
             </div>
         </section>

@@ -26,16 +26,19 @@
 
   /* Dark */
   --color-background-dark: #282315;
+  --color-dark-border: #1B150E; 
 
   /* blues */
   --color-primary-base: #12BFCE;
   --color-primary-base-2: #64D1E4;
   --color-primary-base-3: #B5E2FA;
+  --drop-shadow-primary: 0px 5px 1px #18BFCC;
 
   /* orange */
   --color-secondary-base: #F86624;
   --color-secondary-base-2: #F88344B;
   --color-secondary-base-3: #F7A072;
+  --drop-shadow-secondary: 0px 5px 1px #F76725;
 
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
@@ -45,7 +48,7 @@
 /* Top Navigation Bar */
 .topbar{
   @apply
-  md:pt-5 md:pb-5 xxs:pt-2 xxs:pb-2
+  md:py-5 xxs:py-2
 }
 .svg {
   @apply
@@ -72,4 +75,34 @@
   @apply
   sm:w-10 xxs:w-7
   md:hidden xxs:block
+}
+.logoImage{
+  @apply
+  xxs:pt-2 
+  xxs:pb-3
+  lg:w-60 md:w-40 sm:w-50 xxs:w-30
+  xl:mr-0 lg:mr-10 md:mr-5
+}
+.nav-area{
+  @apply
+  xl:justify-evenly md:justify-center
+  md:items-center
+  md:flex-row xxs:flex-col
+  md:py-4
+  xxs:border-b-3 border-background-dark
+
+}
+.desktop-nav{
+    @apply
+    md:block xxs:hidden
+    space-x-3
+}
+
+.menu-btns{
+  @apply
+  border-2 border-dark-border
+  lg:rounded-3xl md:rounded-2xl
+  py-1 px-5
+  font-body font-light
+  lg:text-xl md:text-sm
 }
