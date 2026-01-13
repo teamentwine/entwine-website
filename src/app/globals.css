@@ -68,9 +68,13 @@
   sm:w-8 xxs:w-5
   mr-3
 }
-.user p{
+.user p, .login-signup p{
   @apply
-  text-xl sm:text-xl xxs:text-xs
+  sm:text-xl xxs:text-xs
+}
+.login-signup {
+  @apply
+  space-x-2
 }
 .logoImage{
   @apply
