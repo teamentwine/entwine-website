@@ -92,10 +92,13 @@
   xxs:border-b-3 border-background-dark
 
 }
-.desktop-nav{
+.menu-nav-container{
     @apply
     md:block xxs:hidden
-    space-x-3
+}
+.menu-nav-container div{
+  @apply
+  space-x-3
 }
 
 .menu-btns{
@@ -106,3 +109,32 @@
   font-body font-light
   lg:text-xl md:text-sm
 }
+
+{/* TODO: Mobile full screen of menu/ over content? */}
+
+.mobile-menu-view{
+  @apply
+  flex flex-col
+  text-left
+  xxs:ml-10
+  xxs:pb-15
+}
+.mobile-menu-view div{
+  @apply
+  flex flex-col
+  xxs:space-y-2
+  xxs:pt-5
+}
+.mobile-menu-view p{
+  @apply
+  border-b-2 border-dark-border
+  xxs:pb-5
+}
+.mobile-menu-view button{
+  @apply
+  border-none
+  drop-shadow-none
+  bg-transparent
+  py-0 px-0
+}
+

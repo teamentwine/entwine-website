@@ -1,8 +1,21 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../assets/logo.png"
+import { useState } from "react";
 
 export default function Navbar () {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsOpen((open)=>!open)
+    }
+
+    const closeMobileMenu = () => {
+        setIsOpen(false)
+    }
+
     return(
         <section id="header flex items-center ">
             <div className="topbar bg-background-dark flex items-center justify-around text-white pt-2 pb-2">
@@ -42,23 +55,35 @@ export default function Navbar () {
                 {/* Open mobile meun on mobile */}
                 <div className="mobile-menu-icon">
                     <Link href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" className="bi bi-list svg" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                    </Link>
+                    <Link href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" 
+                        className={`bi bi-x-lg fill-white svg ${isOpen ? "block" : "hidden"}`} onClick={closeMobileMenu} viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                         </svg>
                     </Link>
                 </div>
             </div>
 
             <div className="nav-area flex bg-background-base">
+                {/* Brand Logo Here */}
                 <div className="mobile-brand flex flex-col align-center items-center">
                     <Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/>
                 </div>
-                <div className="desktop-nav">
+                {/* Menu Naivation Links */}
+                <div className={`menu-nav-container ${isOpen ? "mobile-menu-view" : ""}`}>
+                    <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
+                    <div>
                     <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">about</button></Link>
                     <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">volunteer</button></Link>
                     <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">waitlist</button></Link>
                     <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">platform</button></Link>
                     <Link href="#"><button className="menu-btns bg-secondary-base-3 drop-shadow-secondary">donate</button></Link>
+                    </div>
+                   
                 </div>
 
             </div>
