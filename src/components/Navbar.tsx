@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../assets/logo.png"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar () {
 
@@ -15,6 +15,21 @@ export default function Navbar () {
     const closeMobileMenu = () => {
         setIsOpen(false)
     }
+    /* Closes the menu when window goes out of mobile size
+    ** Prevents issue where opened mobile menu on screen expansion
+    ** messes with desktop/tablet menu layout
+    */
+    useEffect(()=>{
+        const handleWindowResize = () =>{
+            if (window.innerWidth > 640) {
+                setIsOpen(false);
+            }
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        }
+    },[])
 
     return(
         <section id="header flex items-center ">
@@ -39,6 +54,7 @@ export default function Navbar () {
                         </svg>
                     </Link>
                 </div>
+
                 {/* TODO: Conditional on which to display later
                 when accounts are implemented */}
                 <div className="user flex items-center">
@@ -52,13 +68,16 @@ export default function Navbar () {
                 </div>
                 {/* <div className="login-signup">
                 </div> */}
-                {/* Open mobile meun on mobile */}
+                
+                {/* Open mobile menu on mobile */}
                 <div className="mobile-menu-icon">
+                    {/* hamburger menu icon */}
                     <Link href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                         </svg>
                     </Link>
+                    {/* x icon */}
                     <Link href="#">
                         <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" 
                         className={`bi bi-x-lg fill-white svg ${isOpen ? "block" : "hidden"}`} onClick={closeMobileMenu} viewBox="0 0 16 16">
@@ -70,18 +89,18 @@ export default function Navbar () {
 
             <div className="nav-area flex bg-background-base">
                 {/* Brand Logo Here */}
-                <div className="mobile-brand flex flex-col align-center items-center">
+                <div className={`flex flex-col align-center items-center ${isOpen ? "mobile-logo-border": ""} bg-background-base`}>
                     <Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/>
                 </div>
                 {/* Menu Naivation Links */}
                 <div className={`menu-nav-container ${isOpen ? "mobile-menu-view" : ""}`}>
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
                     <div>
-                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">about</button></Link>
-                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">volunteer</button></Link>
-                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">waitlist</button></Link>
-                    <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">platform</button></Link>
-                    <Link href="#"><button className="menu-btns bg-secondary-base-3 drop-shadow-secondary">donate</button></Link>
+                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">about</button></Link>
+                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">volunteer</button></Link>
+                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">waitlist</button></Link>
+                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">platform</button></Link>
+                        <Link href="#"><button className="menu-btns bg-secondary-base-3 drop-shadow-secondary">donate</button></Link>
                     </div>
                    
                 </div>

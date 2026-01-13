@@ -27,6 +27,7 @@
   /* Dark */
   --color-background-dark: #282315;
   --color-dark-border: #1B150E; 
+ 
 
   /* blues */
   --color-primary-base: #12BFCE;
@@ -45,7 +46,7 @@
   --breakpoint-xs: 30rem; /* 480px */
 }
 
-/* Top Navigation Bar */
+/* Top Bar */
 .topbar{
   @apply
   md:py-5 xxs:py-2
@@ -71,11 +72,6 @@
   @apply
   text-xl sm:text-xl xxs:text-xs
 }
-.mobile-menu-icon{
-  @apply
-  sm:w-10 xxs:w-7
-  md:hidden xxs:block
-}
 .logoImage{
   @apply
   xxs:pt-2 
@@ -83,6 +79,7 @@
   lg:w-60 md:w-40 sm:w-50 xxs:w-30
   xl:mr-0 lg:mr-10 md:mr-5
 }
+/* menu area */
 .nav-area{
   @apply
   xl:justify-evenly md:justify-center
@@ -90,7 +87,6 @@
   md:flex-row xxs:flex-col
   md:py-4
   xxs:border-b-3 border-background-dark
-
 }
 .menu-nav-container{
     @apply
@@ -100,7 +96,6 @@
   @apply
   space-x-3
 }
-
 .menu-btns{
   @apply
   border-2 border-dark-border
@@ -109,15 +104,22 @@
   font-body font-light
   lg:text-xl md:text-sm
 }
-
-{/* TODO: Mobile full screen of menu/ over content? */}
-
+/* mobile versio of nav area */
+.mobile-menu-icon{
+  @apply
+  sm:w-10 xxs:w-7
+  md:hidden xxs:block
+}
+.mobile-logo-border{
+  @apply
+  drop-shadow-lg drop-shadow-gray-500
+}
 .mobile-menu-view{
   @apply
   flex flex-col
   text-left
-  xxs:ml-10
-  xxs:pb-15
+  xxs:mx-10
+  xxs:py-10
 }
 .mobile-menu-view div{
   @apply
@@ -129,6 +131,9 @@
   @apply
   border-b-2 border-dark-border
   xxs:pb-5
+  xxs:tracking-[8]
+  xxs:text-2xl
+  xxs:w-full
 }
 .mobile-menu-view button{
   @apply
@@ -136,5 +141,5 @@
   drop-shadow-none
   bg-transparent
   py-0 px-0
+  sm:text-2xl xxs:text-xl
 }
-
