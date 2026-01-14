@@ -13,7 +13,7 @@
   }
 }
 @theme {
-  --color-choco: #86563c;
+
   /* Fonts */
   --font-body: "Inter", sans-serif;
 
@@ -146,4 +146,9 @@
   bg-transparent
   py-0 px-0
   sm:text-2xl xxs:text-xl
+}
+/* footer links  */ 
+.social-link-footer-icon{
+  @apply
+  md:w-6 sm:w-6 xs:w-5 xxs:w-4
 }
