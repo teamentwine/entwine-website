@@ -28,7 +28,6 @@
   --color-background-dark: #282315;
   --color-dark-border: #1B150E; 
  
-
   /* blues */
   --color-primary-base: #12BFCE;
   --color-primary-base-2: #64D1E4;
@@ -46,35 +45,17 @@
   --breakpoint-xs: 30rem; /* 480px */
 }
 
-/* Top Bar */
-.topbar{
-  @apply
-  md:py-5 xxs:py-2
-}
 .svg {
   @apply
     w-full
-}
-.socials{
-  @apply
-  md:space-x-5 xxs:space-x-2
 }
 .social-link-icon{
   @apply
   md:w-7 sm:w-5 xxs:w-3
 }
-.profile-link-icon{
-  @apply
-  sm:w-8 xxs:w-5
-  mr-3
-}
 .user p, .login-signup p{
   @apply
   sm:text-xl xxs:text-xs
-}
-.login-signup {
-  @apply
-  space-x-2
 }
 .logoImage{
   @apply
@@ -92,32 +73,25 @@
   md:py-4
   xxs:border-b-3 border-background-dark
 }
-.menu-nav-container{
-    @apply
-    md:block xxs:hidden
-}
-.menu-nav-container div{
+/* Buttons (orange and blue btns) */
+.primary-btn, .secondary-btn{
   @apply
-  space-x-3
-}
-.menu-btns{
-  @apply
-  border-2 border-dark-border
-  lg:rounded-3xl md:rounded-2xl
   py-1 px-5
-  font-body font-light
-  lg:text-xl md:text-sm
+  font-body
+  lg:rounded-3xl md:rounded-2xl
+  border-2 border-dark-border
 }
-/* mobile versio of nav area */
-.mobile-menu-icon{
+.primary-btn{
   @apply
-  sm:w-10 xxs:w-7
-  md:hidden xxs:block
+  bg-primary-base-2 
+  drop-shadow-primary
 }
-.mobile-logo-border{
+.secondary-btn{
   @apply
-  drop-shadow-lg drop-shadow-gray-500
+  bg-secondary-base-3 
+  drop-shadow-secondary
 }
+/* mobile version of nav area */
 .mobile-menu-view{
   @apply
   flex flex-col
@@ -131,6 +105,15 @@
   xxs:space-y-2
   xxs:pt-5
 }
+.mobile-menu-view button{
+  /* removes previous btn style for mobile */
+  @apply
+  border-none
+  drop-shadow-none
+  bg-transparent
+  py-0 px-0
+  sm:text-2xl xxs:text-xl
+}
 .mobile-menu-view p{
   @apply
   border-b-2 border-dark-border
@@ -138,14 +121,6 @@
   xxs:tracking-[8]
   xxs:text-2xl
   xxs:w-full
-}
-.mobile-menu-view button{
-  @apply
-  border-none
-  drop-shadow-none
-  bg-transparent
-  py-0 px-0
-  sm:text-2xl xxs:text-xl
 }
 /* footer links  */ 
 .social-link-footer-icon{
