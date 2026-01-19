@@ -3,8 +3,7 @@ import Image from "next/image";
 import logo from "../assets/logo.png";
 import Link from "next/link";
 export default function Footerbar () {
-
-   
+    
     const scrollToTopofPage = () =>{
         window.scrollTo({
             top: 0,
@@ -13,15 +12,13 @@ export default function Footerbar () {
         });
     };
   
-
-
     return(
         <section id="footer" className="bg-background-base flex flex-col">  
             <div className="border-t-3 flex md:flex-row xxs:flex-col xxs:items-center xxs:space-y-8 xxs:py-5 md:px-5 xxs:px-10 md:justify-evenly">
                 {/* logo + socials */}
-                <div className="logo-socials-container flex flex-col items-center md:space-y-4 xxs:space-y-8">
+                <div className="flex flex-col items-center md:space-y-4 xxs:space-y-8">
                     <Image src={logo} alt="logo image" className="md:w-40 sm:w-50 xxs:w-40"/>
-                    <div className="social-icons flex md:space-x-5 xxs:space-x-10">
+                    <div className="flex md:space-x-5 xxs:space-x-10">
                        {/* Facebook Link */}
                         <Link href="#" className="social-link-footer-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-facebook svg font-dark-text" viewBox="0 0 16 16">
@@ -44,7 +41,7 @@ export default function Footerbar () {
                 </div>
                 <div className="md:space-y-8 xxs:space-y-5 flex flex-col">
                     {/* menu links */}
-                    <div className="link-grid-container xxs:grid md:grid-cols-5 xxs:grid-cols-3 items-center md:text-right md:gap-4 xxs:gap-10 font-body md:text-sm sm:text-lg xs:text-sm xxs:text-xs font-bold uppercase">
+                    <div className="xxs:grid md:grid-cols-5 xxs:grid-cols-3 items-center md:text-right md:gap-4 xxs:gap-10 font-body md:text-sm sm:text-lg xs:text-sm xxs:text-xs font-bold uppercase">
                         <Link href="#"><p>about</p></Link>
                         <Link href="#"><p>volunteer</p></Link>
                         <Link href="#"><p>waitlist</p></Link>
@@ -55,7 +52,6 @@ export default function Footerbar () {
                     <p className="font-body font-thin xxs:text-xs md:self-end xxs:self-center xxs:pb-5">Copyright @2026</p>
                 </div>
             </div>  
-          
             {/* Back to Top link */}
             <div className="backtop-link-container bg-background-dark w-full flex flex-col items-center xxs:py-3">
                 <Link href="#" onClick={scrollToTopofPage}><p className="font-body text-white xxs:text-xs">BACK TO TOP</p></Link>

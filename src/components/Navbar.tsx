@@ -33,8 +33,8 @@ export default function Navbar () {
 
     return(
         <section id="header flex items-center ">
-            <div className="topbar bg-background-dark flex items-center justify-around text-white pt-2 pb-2">
-                <div className="socials flex">  
+            <div className="bg-background-dark flex items-center justify-around text-white pt-2 pb-2 md:py-5 xxs:py-2">
+                <div className="flex md:space-x-5 xxs:space-x-2">  
                     {/* Facebook Link */}
                     <Link href="#" className="social-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className="bi bi-facebook svg" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@ export default function Navbar () {
                 {/* TODO: Conditional on which of 2 to display later
                 when accounts are implemented */}
                 {/* <div className="user flex items-center">
-                    <Link href="#" className="profile-link-icon">
+                    <Link href="#" className="sm:w-8 xxs:w-5 mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-person-circle mr-3 svg" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -66,7 +66,7 @@ export default function Navbar () {
                     </Link>
                     <p className="font-body">Hello, Sierra</p>
                 </div> */}
-                <div className="login-signup flex items-center">
+                <div className="login-signup flex items-center  space-x-2">
                     <Link href="#"><p className="font-body">Login</p></Link>
                     <p>/</p>
                     <Link href="#"><p className="font-body">Sign Up</p></Link>
@@ -74,7 +74,7 @@ export default function Navbar () {
                 {/* - - - */}
 
                 {/* Open mobile menu on mobile */}
-                <div className="mobile-menu-icon">
+                <div className="sm:w-10 xxs:w-7 md:hidden xxs:block">
                     {/* hamburger menu icon */}
                     <Link href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
@@ -93,22 +93,20 @@ export default function Navbar () {
 
             <div className="nav-area flex bg-background-base">
                 {/* Brand Logo Here */}
-                <div className={`flex flex-col align-center items-center ${isOpen ? "mobile-logo-border": ""} bg-background-base`}>
-                    <Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/>
+                <div className={`flex flex-col align-center items-center ${isOpen ? " drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
+                    <Link href="/"><Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/></Link>
                 </div>
                 {/* Menu Naivation Links */}
-                <div className={`menu-nav-container ${isOpen ? "mobile-menu-view" : ""}`}>
+                <div className={`menu-nav-container md:block xxs:hidden ${isOpen ? "mobile-menu-view" : ""}`}>
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
-                    <div>
-                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">about</button></Link>
-                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">volunteer</button></Link>
-                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">waitlist</button></Link>
-                        <Link href="#"><button className="menu-btns bg-primary-base-2 drop-shadow-primary">platform</button></Link>
-                        <Link href="#"><button className="menu-btns bg-secondary-base-3 drop-shadow-secondary">donate</button></Link>
+                    <div className="space-x-3 lg:text-xl md:text-sm font-light ">
+                        <Link href="#"><button className="primary-btn">about</button></Link>
+                        <Link href="#"><button className="primary-btn">volunteer</button></Link>
+                        <Link href="#"><button className="primary-btn">waitlist</button></Link>
+                        <Link href="#"><button className="primary-btn">platform</button></Link>
+                        <Link href="#"><button className="secondary-btn">donate</button></Link>
                     </div>
-                   
                 </div>
-
             </div>
         </section>
     )
