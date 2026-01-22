@@ -17,7 +17,9 @@ export default function Footerbar () {
             <div className="border-t-3 flex md:flex-row xxs:flex-col xxs:items-center xxs:space-y-8 xxs:py-5 md:px-5 xxs:px-10 md:justify-evenly">
                 {/* logo + socials */}
                 <div className="flex flex-col items-center md:space-y-4 xxs:space-y-8">
-                    <Image src={logo} alt="logo image" className="md:w-40 sm:w-50 xxs:w-40"/>
+                    <Link href="/">
+                        <Image src={logo} alt="logo image" className="md:w-40 sm:w-50 xxs:w-40"/>
+                    </Link> 
                     <div className="flex md:space-x-5 xxs:space-x-10">
                        {/* Facebook Link */}
                         <Link href="#" className="social-link-footer-icon">
@@ -42,7 +44,7 @@ export default function Footerbar () {
                 <div className="md:space-y-8 xxs:space-y-5 flex flex-col">
                     {/* menu links */}
                     <div className="xxs:grid md:grid-cols-5 xxs:grid-cols-3 items-center md:text-right md:gap-4 xxs:gap-10 font-body md:text-sm sm:text-lg xs:text-sm xxs:text-xs font-bold uppercase">
-                        <Link href="#"><p>about</p></Link>
+                        <Link href="/about"><p>about</p></Link>
                         <Link href="#"><p>volunteer</p></Link>
                         <Link href="#"><p>waitlist</p></Link>
                         <Link href="#"><p>platform</p></Link>

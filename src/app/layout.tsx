@@ -1,7 +1,7 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import Footerbar from "@/components/Footer";
+import Footerbar from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Entwine",
