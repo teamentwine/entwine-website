@@ -1,3 +1,10 @@
+import Image from "next/image";
+
+
+/* 
+** TODO: Make responsive for screen sizes
+**
+*/
 
 export default function about (){
     return(
@@ -26,17 +33,73 @@ export default function about (){
                     <p className="font-body font-bold text-8xl ml-10">FOUNDERS</p>
                 </div>
             </div>
-            {/* founder cards */}
-            <div className="m-20">
-                {/* card v 1*/}
-                <div className="border-1 drop-shadow-cardv2 rounded-2xl py-15 px-10 w-lg bg-white">
-                    <div className="font-body text-center">
-                        <p className="font-bold">Lorem I.</p>
-                        <p className="font-light">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
-                        <p>Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+            {/* founder cards container */}
+            {/*    grid grid-cols-2 place-items-center  */}
+            <div className="my-40 mx-20 flex flex-wrap justify-evenly gap-y-50">
+
+                {/* card 1 */}
+                <div className="relative">
+                    {/* card photo */}
+                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/profilecard.jpg')]
+                   ">     
+                    </div>
+                    {/* card text */}
+                    <div className="founderCard cardv1">
+                        <div className="font-body text-center text-2xl space-y-5">
+                            <p className="font-bold text-5xl">Lorem I.</p>
+                            <p className="font-light">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
+                            <p className="text-start">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                        </div>
                     </div>
                 </div>
 
+                 {/* card 2 */}
+                 <div className="relative mt-25">
+                    {/* card photo */}
+                    <div className="cardProfileImage cardRightProfile bg-[url('./assets/profilecard.jpg')] 
+                   ">     
+                    </div>
+                    {/* card text */}
+                    <div className="founderCard cardv2">
+                        <div className="font-body text-center text-2xl space-y-5">
+                            <p className="font-bold text-5xl">Lorem I.</p>
+                            <p className="font-light">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
+                            <p className="text-start">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                        </div>
+                    </div>
+                </div>
+
+                  {/* card 3 */}
+                  <div className="relative">
+                    {/* card photo */}
+                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/profilecard.jpg')]
+                   ">     
+                    </div>
+                    {/* card text */}
+                    <div className="founderCard cardv1">
+                        <div className="font-body text-center text-2xl space-y-5">
+                            <p className="font-bold text-5xl">Lorem I.</p>
+                            <p className="font-light">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
+                            <p className="text-start">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                        </div>
+                    </div>
+                </div>
+
+                 {/* card 4 */}
+                 <div className="relative mt-25">
+                    {/* card photo */}
+                    <div className="cardProfileImage cardRightProfile bg-[url('./assets/profilecard.jpg')] 
+                   ">     
+                    </div>
+                    {/* card text */}
+                    <div className="founderCard cardv2">
+                        <div className="font-body text-center text-2xl space-y-5">
+                            <p className="font-bold text-5xl">Lorem I.</p>
+                            <p className="font-light">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
+                            <p className="text-start">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     )

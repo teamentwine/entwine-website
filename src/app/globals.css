@@ -33,13 +33,14 @@
   --color-primary-base-2: #64D1E4;
   --color-primary-base-3: #B5E2FA;
   --drop-shadow-primary: 0px 5px 1px #18BFCC;
+  --drop-shadow-cardv1: -12px 10px 1px #64D1E4;
 
   /* orange */
   --color-secondary-base: #F86624;
   --color-secondary-base-2: #F8834B;
   --color-secondary-base-3: #F7A072;
   --drop-shadow-secondary: 0px 5px 1px #F76725;
-  --drop-shadow-cardv2: -12px 10px 2px #F8834C;
+  --drop-shadow-cardv2: -12px 10px 1px #F8834C;
 
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
@@ -135,4 +136,37 @@
 .aboutus-text{
   @apply
   text-2xl
+}
+.cardProfileImage{
+  @apply
+  w-50 
+  h-50 
+  rounded-full border-2 
+  absolute z-10 
+  bg-cover
+}
+.cardProfileImage.cardRightProfile{
+  @apply
+  top-[-100] right-[-100] 
+  drop-shadow-cardv2
+}
+.cardProfileImage.cardLeftProfile{
+  @apply
+  top-[-100] left-[-100]
+  drop-shadow-cardv1
+}
+.founderCard{
+  @apply
+  border-1 
+  rounded-[50px] 
+  pt-15 pb-10 px-8 
+  w-lg bg-white
+}
+.founderCard.cardv1{
+  @apply
+  drop-shadow-cardv2 
+}
+.founderCard.cardv2{
+  @apply
+  drop-shadow-cardv1
 }
