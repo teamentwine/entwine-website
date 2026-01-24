@@ -41,7 +41,7 @@
   --color-secondary-base-3: #F7A072;
   --drop-shadow-secondary: 0px 5px 1px #F76725;
   --drop-shadow-cardv2: -12px 10px 1px #F8834C;
-
+ 
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
@@ -135,38 +135,66 @@
 /* about us page */
 .aboutus-text{
   @apply
-  text-2xl
+  xxs:text-xs sm:text-base md:text-base xl:text-xl 
 }
 .cardProfileImage{
   @apply
-  w-50 
-  h-50 
+  xxs:w-20 xs:w-25 sm:w-30 md:w-40 
+  xxs:h-20 xs:h-25 sm:h-30 md:h-40 
   rounded-full border-2 
   absolute z-10 
   bg-cover
 }
 .cardProfileImage.cardRightProfile{
   @apply
-  top-[-100] right-[-100] 
-  drop-shadow-cardv2
+  xxs:top-[-70] xs:top-[-50] md:top-[-80] 
+  xxs:left-[80] xs:left-[270] sm:left-[390] md:left-[430] lg:left-[300]
+  xxs:drop-shadow-[_-5px_3px_#F8834C] md:drop-shadow-cardv2
 }
 .cardProfileImage.cardLeftProfile{
   @apply
-  top-[-100] left-[-100]
-  drop-shadow-cardv1
+  xxs:top-[-70] xs:top-[-50]  md:top-[-80] 
+  xxs:left-[80] xs:left-[-50] sm:left-[-55] md:left-[-80]
+  xxs:drop-shadow-[_-5px_3px_#64D1E4]  md:drop-shadow-cardv1
 }
 .founderCard{
   @apply
   border-1 
   rounded-[50px] 
-  pt-15 pb-10 px-8 
-  w-lg bg-white
+  xxs:pt-5 sm:pt-10 md:pt-15 
+  xxs:pb-5 xs:pb-10 
+  xxs:px-5 xs:px-8 
+  xxs:w-60 xs:w-xs sm:w-md md:w-lg lg:w-sm xl:w-md
+  bg-white
 }
 .founderCard.cardv1{
   @apply
-  drop-shadow-cardv2 
+  xxs:drop-shadow-[_-5px_5px_#F8834C]
+  md:drop-shadow-cardv2
 }
 .founderCard.cardv2{
   @apply
-  drop-shadow-cardv1
+  xxs:drop-shadow-[_-5px_5px_#64D1E4]
+  md:drop-shadow-cardv1
 }
+.founderCard .card_content_container{
+  @apply
+  font-body
+  text-center 
+  xxs:text-xs sm:text-base md:text-xl lg:text-base
+  xxs:space-y-3 md:space-y-5
+}
+.founderCard div .card_name{
+  @apply
+  font-bold 
+  xxs:text-2xl  md:text-4xl
+}
+.founderCard div .card_quote{
+  @apply
+  font-light
+}
+.founderCard div .cart_about{
+  @apply
+  text-start
+}
+
