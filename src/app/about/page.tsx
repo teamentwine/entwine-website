@@ -1,16 +1,10 @@
 import Image from "next/image";
 
-
-/* 
-** TODO: Make responsive for screen sizes
-**
-*/
-
 export default function about (){
     return(
         <section id="aboutus_page" className="flex flex-col">
             {/* about us info */}
-            <div className="aboutus-container xxs:m-10 md:m-20 flex space-y-5">
+            <div className="xxs:m-10 md:m-20 flex space-y-5 2xl:mx-auto 2xl:max-w-6xl">
                 <div className="space-y-5">
                     {/* img placehodler */}
                     <div className="xxs:w-60 xxs:h-30 xs:w-50 sm:w-60  md:w-70 xl:w-100 md:h-50 border-2 xxs:float-start xs:float-right md:float-right xxs:mb-10 xs:mb-3 md:ml-10 md:mb-10"></div>
@@ -35,7 +29,7 @@ export default function about (){
                 </div>
             </div>
             {/* founder cards container */}
-            <div className="xxs:mt-30 md:mt-40 xl:mt-30 xxs:mb-20 xxs:px-10 lg:px-20 xl:px30 flex flex-wrap justify-evenly xxs:gap-y-30 md:gap-y-30 lg:gap-y-15 xl:grid xl:grid-cols-2 xl:place-items-center 
+            <div className="xxs:mt-30 md:mt-40 xl:mt-30 xxs:mb-20 xxs:px-10 lg:px-20 xl:px-30 flex flex-wrap justify-evenly xxs:gap-y-30 md:gap-y-30 lg:gap-y-15 2xl:gap-x-15 xl:grid xl:grid-cols-2 xl:place-items-center 2xl:max-w-max 2xl:mx-auto
             ">
                 {/* card 1 */}
                 <div className="relative">
@@ -53,7 +47,7 @@ export default function about (){
                     </div>
                 </div>
 
-                {/* card 2 md:mt-25 */}
+                {/* card 2 */}
                 <div className="relative lg:mt-25">
                     {/* card photo */}
                     <div className="cardProfileImage cardRightProfile bg-[url('./assets/profilecard.jpg')] 
