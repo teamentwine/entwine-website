@@ -51,10 +51,6 @@
   @apply
     w-full
 }
-.social-link-icon{
-  @apply
-  md:w-7 sm:w-5 xxs:w-3
-}
 .user p, .login-signup p{
   @apply
   sm:text-xl xxs:text-xs
