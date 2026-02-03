@@ -56,13 +56,13 @@ export default function Navbar () {
                 {/* Open mobile menu on mobile */}
                 <div className="sm:w-10 xxs:w-7 md:hidden xxs:block">
                     {/* hamburger menu icon */}
-                    <Link href="#">
+                    <Link href="#" aria-label="open mobile menu icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                         </svg>
                     </Link>
                     {/* x icon */}
-                    <Link href="#">
+                    <Link href="#" aria-label="close mobile menu icon">
                         <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" 
                         className={`bi bi-x-lg fill-white svg ${isOpen ? "block" : "hidden"}`} onClick={closeMobileMenu} viewBox="0 0 16 16">
                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
@@ -84,7 +84,7 @@ export default function Navbar () {
                     <div className="space-x-3 lg:text-xl md:text-sm font-light">
                         <Link href="/about"><button className="primary-btn">about</button></Link>
                         <Link href="#"><button className="primary-btn">volunteer</button></Link>
-                        <Link href="#"><button className="primary-btn">waitlist</button></Link>
+                        <Link href="/waitlist"><button className="primary-btn">waitlist</button></Link>
                         <Link href="#"><button className="primary-btn">platform</button></Link>
                         <Link href="#"><button className="secondary-btn">donate</button></Link>
                     </div>
