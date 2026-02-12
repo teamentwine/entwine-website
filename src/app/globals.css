@@ -46,7 +46,6 @@
   --breakpoint-xxs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
 }
-
 .svg {
   @apply
     w-full
@@ -202,6 +201,4 @@
     w-full
     xxs:text-xs sm:text-base xl:text-lg 2xl:text-xl
     p-3
-
-
 }

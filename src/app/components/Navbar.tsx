@@ -83,9 +83,9 @@ export default function Navbar () {
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
                     <div className="space-x-3 lg:text-xl md:text-sm font-light">
                         <Link href="/about"><button className="primary-btn">about</button></Link>
-                        <Link href="#"><button className="primary-btn">volunteer</button></Link>
+                        <Link href="/volunteer"><button className="primary-btn">volunteer</button></Link>
                         <Link href="/waitlist"><button className="primary-btn">waitlist</button></Link>
-                        <Link href="#"><button className="primary-btn">platform</button></Link>
+                        <Link href="/platform"><button className="primary-btn">platform</button></Link>
                         <Link href="#"><button className="secondary-btn">donate</button></Link>
                     </div>
                 </div>
