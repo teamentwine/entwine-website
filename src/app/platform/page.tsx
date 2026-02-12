@@ -15,7 +15,7 @@ export default function Platform () {
                 <div className="flex flex-col xxs:w-50 xs:w-70 lg:w-90 xxs:h-60 xs:h-80 md:h-100 lg:h-120 bg-gray-500 xxs:float md:absolute xxs:mt-[-40] md:mt-[-50] lg:mt-[-40] xxs:mx-auto md:mx-0 md:ml-[7%] lg:ml-[5%] xl:ml-[3%] 2xl:ml-[-2%]">
                 </div>
                 {/* Paragraphs */}
-                <div className="xxs:space-y-5 xxs:mt-5 lg:my-15 md:ml-[50%] lg:ml-[45%] md:mr-10">
+                <div className="xxs:space-y-5 xxs:mt-5 lg:my-15 md:ml-[50%] lg:ml-[45%] md:mr-10 indent-5">
                     <p className="font-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales leo rhoncus, finibus nisi facilisis, placerat ligula. Nulla sed ante tempor, convallis urna a, porta odio. Fusce ornare risus id ligula vulputate consequat. </p>
                     <p className="font-body">  Etiam a maximus felis. Nam accumsan velit ligula, sit amet sollicitudin turpis laoreet at. Cras ornare, metus ac placerat varius, massa mi sollicitudin lacus, quis maximus quam elit nec tortor. Mauris ut vulputate arcu, in <span className="text-secondary-base">imperdiet quam!</span></p>
                 </div>
