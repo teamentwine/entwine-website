@@ -32,7 +32,7 @@ export default function Navbar () {
     },[])
 
     return(
-        <section id="header flex items-center ">
+        <section id="header flex items-center" className={`${ isOpen ? "fixed h-screen overflow-y-auto w-full z-100": ""}`} >
             <div className="bg-background-dark flex items-center justify-around text-white pt-2 pb-2 md:py-5 xxs:py-2">
                 <div></div>
                 {/* TODO: Conditional on which of 2 to display later
@@ -79,7 +79,7 @@ export default function Navbar () {
                 {/* a "div block" to add more spacing between */}
                 <div className="xl:block 2xl:w-100 xl:w-50  xxs:hidden"></div>
                 {/* Menu Naivation Links */}
-                <div className={`md:block xxs:hidden ${isOpen ? "mobile-menu-view" : ""}`}>
+                <div className={`md:block xxs:hidden ${isOpen ? "mobile-menu-view h-screen" : ""}`}>
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
                     <div className="space-x-3 lg:text-xl md:text-sm font-light">
                         <Link href="/about"><button className="primary-btn">about</button></Link>
