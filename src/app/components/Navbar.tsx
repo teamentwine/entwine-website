@@ -86,7 +86,7 @@ export default function Navbar () {
                         <Link href="/volunteer"><button className="primary-btn">volunteer</button></Link>
                         <Link href="/waitlist"><button className="primary-btn">waitlist</button></Link>
                         <Link href="/platform"><button className="primary-btn">platform</button></Link>
-                        <Link href="#"><button className="secondary-btn">donate</button></Link>
+                        {/* <Link href="#"><button className="secondary-btn">donate</button></Link> */}
                     </div>
                 </div>
             </div>
