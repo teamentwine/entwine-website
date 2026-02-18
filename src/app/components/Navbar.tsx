@@ -82,10 +82,10 @@ export default function Navbar () {
                 <div className={`md:block xxs:hidden ${isOpen ? "mobile-menu-view h-screen" : ""}`}>
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
                     <div className="space-x-3 lg:text-xl md:text-sm font-light">
-                        <Link href="/about"><button className="primary-btn">about</button></Link>
+                        <Link href="/team"><button className="primary-btn">team</button></Link>
                         <Link href="/volunteer"><button className="primary-btn">volunteer</button></Link>
                         <Link href="/waitlist"><button className="primary-btn">waitlist</button></Link>
-                        <Link href="/platform"><button className="primary-btn">platform</button></Link>
+                        <Link href="/platform"><button className="secondary-btn">platform</button></Link>
                         {/* <Link href="#"><button className="secondary-btn">donate</button></Link> */}
                     </div>
                 </div>
