@@ -44,11 +44,11 @@ export default function Footerbar () {
                 <div className="md:space-y-8 xxs:space-y-5 flex flex-col">
                     {/* menu links */}
                     <div className="xxs:grid md:grid-cols-5 xxs:grid-cols-3 items-center md:text-right md:gap-4 xxs:gap-10 font-body md:text-sm sm:text-lg xs:text-sm xxs:text-xs font-bold uppercase">
-                        <Link href="/about"><p>about</p></Link>
-                        <Link href="#"><p>volunteer</p></Link>
+                        <Link href="/team"><p>team</p></Link>
+                        <Link href="/volunteer"><p>volunteer</p></Link>
                         <Link href="/waitlist"><p>waitlist</p></Link>
-                        <Link href="#"><p>platform</p></Link>
-                        <Link href="#"><p>donate</p></Link>
+                        <Link href="/platform"><p>platform</p></Link>
+                        {/* <Link href="#"><p>donate</p></Link> */}
                     </div>
                     {/* copyright*/}
                     <p className="font-body font-thin xxs:text-xs md:self-end xxs:self-center xxs:pb-5">Copyright @2026</p>
