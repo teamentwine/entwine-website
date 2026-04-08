@@ -1,20 +1,28 @@
 import Image from "next/image";
-
+import teamwork_Image from "../assets/teamwork.jpg"
 export default function about (){
     return(
         <section id="aboutus_page" className="flex flex-col">
-            {/* about us info */}
-            <div className="xxs:m-10 md:m-20 flex space-y-5 2xl:mx-auto 2xl:max-w-6xl">
+            {/* team info */}
+            <div className="xxs:m-10 md:m-20 flex 2xl:mx-auto 2xl:max-w-6xl">
                 <div className="space-y-5">
-                    {/* img placehodler */}
-                    <div className="xxs:w-60 xxs:h-30 xs:w-50 sm:w-60  md:w-70 xl:w-100 md:h-50 border-2 xxs:float-start xs:float-right md:float-right xxs:mb-10 xs:mb-3 md:ml-10 md:mb-10"></div>
 
-                    <p className="font-body text-secondary-base-2 xxs:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>
-                    <p className="font-body font-bold xxs:text-2xl sm:text-3xl md:text-4xl xl:text-5xl xxs:border-l-4 md:border-l-8 border-primary-base-2 pl-5">ABOUT US</p>
+                    <div className="flex xxs:flex-col xs:flex-row justify-between xxs:space-y-5">
+                        <div className="xxs:self-start xs:self-end lg:self-center xxs:space-y-5 space-y-10">
+                            <p className="font-body text-secondary-base-2 xxs:text-base md:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>
+                            <p className="font-body font-bold xxs:text-2xl sm:text-3xl md:text-4xl xl:text-5xl xxs:border-l-4 md:border-l-8 border-primary-base-2 pl-5">OUR TEAM</p>
+                        </div>
+                        
+                       {/* img */}
+                       <div className="flex flex-col xxs:float-start xs:float-right md:float-right md:ml-10">
+                            <Image src={teamwork_Image} alt="image of people having a discussion" className="xxs:w-60 xs:w-55 sm:w-80 md:w-80 lg:w-120 xl:w-150 " />
+                        {/* Attribution */}
+                        <a href="https://www.vecteezy.com/free-vector/conference" className="text-[0.5rem] xxs:self-center xs:self-end">Conference Vectors by Vecteezy</a>
+                        </div>
+                    </div>
                 
-                    <p className="aboutus-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus risus at pulvinar lobortis. Praesent vel porta nulla. Nullam a dolor gravida, fringilla ex in, rutrum quam. Cras urna lacus, mollis ac laoreet sit amet, tincidunt ac nisi. Aenean mollis ligula sed nisi posuere, eget congue ipsum bibendum. Proin tincidunt risus et pulvinar ullamcorper. </p>
-                    <p className="aboutus-text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus risus at pulvinar lobortis. Praesent vel porta nulla. Nullam a dolor gravida, fringilla ex in, rutrum quam. Cras urna lacus, mollis ac laoreet sit amet, tincidunt ac nisi. Aenean mollis ligula sed nisi posuere, eget congue ipsum bibendum. Proin tincidunt risus et pulvinar ullamcorper. </p>
-                    <p className="aboutus-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus risus at pulvinar lobortis. Praesent vel porta nulla. Nullam a dolor gravida, fringilla ex in, rutrum quam. Cras urna lacus, mollis ac laoreet sit amet, tincidunt ac nisi. Aenean mollis ligula sed nisi posuere, eget congue ipsum bibendum. Proin tincidunt risus et pulvinar ullamcorper. </p>
+                    <p className="aboutus-text">In 2024, we started this project as a group of 4 high school students and since then, even as we've gone to different colleges we have been working to build this dreams we had... Praesent vel porta nulla. Nullam a dolor gravida, fringilla ex in, rutrum quam. Cras urna lacus, mollis ac laoreet sit amet, tincidunt ac nisi.</p>
+
                 </div>
             </div>
             {/* Our founder title */}
