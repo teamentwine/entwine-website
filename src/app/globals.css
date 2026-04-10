@@ -202,3 +202,40 @@
     xxs:text-xs sm:text-base xl:text-lg 2xl:text-xl
     p-3
 }
+
+/* Platform page*/
+
+.bulleted-list{
+  @apply
+  xxs:leading-6 sm:leading-10 
+}
+
+.benchmark-container{
+  @apply
+    xxs:space-x-3  space-x-10 
+    z-10 
+    xxs:mb-20  md:mb-40
+}
+
+.benchmark-line{
+  @apply
+  xxs:top-1
+  xxs:left-23 sm:left-28 md:left-42 
+  xxs:h-full
+  xxs:w-0.5 md:w-0.5 
+}
+.benchmark-marker{
+  @apply
+  xxs:w-3 sm:w-4 md:w-8 
+  xxs:h-3 sm:h-4 md:h-8 
+  xxs:mt-1
+}
+.benchmark-heading{
+  @apply
+    xxs:text-base sm:text-xl md:text-3xl 
+    xxs:mb-5 md:mb-10
+}
+.benchmark-body-text{
+  @apply
+    xxs:text-[10px] sm:text-base md:text-xl
+}
