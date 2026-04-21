@@ -1,8 +1,14 @@
+'use client'
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const circle = "flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[var(--color-secondary-base-2)] font-bold shadow-[-4px_4px_0px_0px_var(--color-secondary-base-2)]";
 
 export default function Home() {
+  const handleLearnMoreClick = (section: string) => {
+    posthog.capture('home_learn_more_clicked', { section });
+  };
+
   return (
     <main className="bg-white">
       {/* Hero Section */}
@@ -33,7 +39,7 @@ export default function Home() {
           <p className="text-dark-text/80 text-base md:text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
             whatever thou heart desires (place something here).
           </p>
-          <button className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
+          <button onClick={() => handleLearnMoreClick('about')} className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
             bg-[var(--color-primary-base-2)] transition-colors
             duration-300 active:bg-[var(--color-primary-base-3)] shadow-[0px_6px_0px_0px_var(--color-primary-base)]">
             Learn More
@@ -96,7 +102,7 @@ export default function Home() {
               <p className="text-dark-text mb-4">
                 short descpriiton/info relating to section
               </p>
-              <button className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
+              <button onClick={() => handleLearnMoreClick('info')} className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
                 bg-[var(--color-secondary-base-2)] transition-colors
                 duration-300 active:bg-[var(--color-secondary-base-3)] shadow-[-6px_6px_0px_0px_var(--color-secondary-base)]">
                 Learn More

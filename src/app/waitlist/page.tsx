@@ -1,16 +1,31 @@
 'use client'
 import Link from "next/link"
+import { useEffect } from "react"
+import posthog from "posthog-js"
+
 export default function Waitlist () {
+    useEffect(() => {
+        posthog.capture('waitlist_page_viewed');
+    }, []);
+
+    const handleFormSubmit = () => {
+        posthog.capture('waitlist_form_submitted');
+    };
+
+    const handleEmailClick = () => {
+        posthog.capture('email_link_clicked');
+    };
+
     return(
         <section id="waitlist_page" className="flex flex-col">
                 {/* Call to action */}
                 <div className="flex flex-col items-center xxs:mx-5 xs:mx-8 sm:mx-15 2xl:mx-20 xxs:mt-10 sm:mt-20 xl:mt-30 xxs:space-y-5 md:space-y-10 2xl:space-y-20 ">
                     <p className="font-body text-secondary-base xxs:text-base sm:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold">JOIN THE</p>
                     <p className="font-body xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black">WAITLIST<span className="text-secondary-base">!</span></p>
-                    <p className="font-body xxs:text-xs sm:text-base lg:text-lg 2xl:text-3xl text-center">If you're a non-profit interested in our mission or want to hear more about the vision, please fill out our interest form or email us at <Link href="#"><span className="underline">info@entwine.org</span>.</Link> We'd love to hear any feedback or ideas we can. Thank you!</p>
+                    <p className="font-body xxs:text-xs sm:text-base lg:text-lg 2xl:text-3xl text-center">If you're a non-profit interested in our mission or want to hear more about the vision, please fill out our interest form or email us at <Link href="#" onClick={handleEmailClick}><span className="underline">info@entwine.org</span>.</Link> We'd love to hear any feedback or ideas we can. Thank you!</p>
                 </div>
                 {/* Form */}
-                <form action="#" className="xxs:w-3/4 2xl:w-5xl flex flex-col mx-auto xxs:my-10 md:my-15 lg:my-20 xl:my-25 2xl:my-30 space-y-5 ">
+                <form action="#" onSubmit={handleFormSubmit} className="xxs:w-3/4 2xl:w-5xl flex flex-col mx-auto xxs:my-10 md:my-15 lg:my-20 xl:my-25 2xl:my-30 space-y-5 ">
                     <input type="text" id="orgnizationName" placeholder="* Organization" className="form-input" required/>
                     <div className="flex xxs:space-y-5 md:space-y-0 md:space-x-5 xxs:flex-col md:flex-row">
                         <input type="text" id="firstName" placeholder="* First Name" className="form-input" required/>
