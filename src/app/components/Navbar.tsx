@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../assets/logo.png"
 import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 
 export default function Navbar () {
 
@@ -15,6 +16,11 @@ export default function Navbar () {
     const closeMobileMenu = () => {
         setIsOpen(false)
     }
+
+    const handleNavLinkClick = (label: string) => {
+        closeMobileMenu();
+        posthog.capture('nav_link_clicked', { label });
+    };
     /* Closes the menu when window goes out of mobile size
     ** Prevents issue where opened mobile menu on screen expansion
     ** messes with desktop/tablet menu layout
@@ -82,10 +88,10 @@ export default function Navbar () {
                 <div className={`md:block xxs:hidden ${isOpen ? "mobile-menu-view h-screen" : ""}`}>
                     <p  className={`font-body ${isOpen ? "" : "hidden"}`}>MENU</p>
                     <div className="space-x-3 lg:text-xl md:text-sm font-light">
-                        <Link href="/team"><button className="primary-btn" onClick={closeMobileMenu}>team</button></Link>
-                        <Link href="/volunteer"><button className="primary-btn" onClick={closeMobileMenu}>volunteer</button></Link>
-                        <Link href="/waitlist"><button className="primary-btn" onClick={closeMobileMenu}>waitlist</button></Link>
-                        <Link href="/platform"><button className="secondary-btn" onClick={closeMobileMenu}>platform</button></Link>
+                        <Link href="/team"><button className="primary-btn" onClick={() => handleNavLinkClick('team')}>team</button></Link>
+                        <Link href="/volunteer"><button className="primary-btn" onClick={() => handleNavLinkClick('volunteer')}>volunteer</button></Link>
+                        <Link href="/waitlist"><button className="primary-btn" onClick={() => handleNavLinkClick('waitlist')}>waitlist</button></Link>
+                        <Link href="/platform"><button className="secondary-btn" onClick={() => handleNavLinkClick('platform')}>platform</button></Link>
                         {/* <Link href="#"><button className="secondary-btn">donate</button></Link> */}
                     </div>
                 </div>

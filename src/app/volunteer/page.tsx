@@ -1,6 +1,43 @@
+'use client'
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 
 export default function Volunteer() {
+
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    posthog.capture('volunteer_page_viewed');
+  }, []);
+
+  // Send the form data to Posthog
+  const handleFormSubmit = () => {
+
+    // TODO: Prevent submission if fields are empty
+
+    posthog.capture('volunteer_form_submitted',{
+      form_name: 'volunteer_form',
+      firstName : firstName,
+      lastName: lastName,
+      email : email,
+      phone : phone,
+      subject : subject,
+      message : message,
+    });
+
+
+  };
+
+  const handleIdealistClick = () => {
+    posthog.capture('idealist_link_clicked');
+  };
+
   return (
     <main className="bg-white overflow-x-hidden">
       {/* Title */}
@@ -19,7 +56,7 @@ export default function Volunteer() {
             </p>
             <p className="mt-4 text-xs md:text-sm text-dark-text/70">
               *If you're looking for specific positions, look at our postings on{" "}
-              <a href="https://idealist.org" className="underline font-semibold">
+              <a href="https://idealist.org" className="underline font-semibold" onClick={handleIdealistClick}>
                 Idealist
               </a>
             </p>
@@ -57,13 +94,20 @@ export default function Volunteer() {
           {/* Form */}
           <form
             id="volunteer-form"
+            onSubmit={handleFormSubmit}
             className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="First Name*" />
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Last Name*" />
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Email*" />
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Phone*" />
-            <input className="border-2 border-black rounded-lg p-3 sm:col-span-2 w-full" placeholder="Subject*" />
-            <textarea className="border-2 border-black rounded-lg p-3 sm:col-span-2 h-40 resize-none w-full" placeholder="Message*" />
+            {/*First Name */ }
+            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="First Name*" value={firstName} onChange={(e)=> setFirstName(e.target.value)}/>
+            {/* Last Name */}
+            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Last Name*" value={lastName} onChange={(e)=> setLastName(e.target.value)} />
+            {/* Email */}
+            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Email*" value={email} onChange={(e)=> setEmail(e.target.value)} />
+            {/* Phone */}
+            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Phone*" value={phone} onChange={(e)=> setPhone(e.target.value)}/>
+            {/* Subject */}
+            <input className="border-2 border-black rounded-lg p-3 sm:col-span-2 w-full" placeholder="Subject*" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
+            {/* Message */}
+            <textarea className="border-2 border-black rounded-lg p-3 sm:col-span-2 h-40 resize-none w-full" placeholder="Message*" value={message} onChange={(e)=> setMessage(e.target.value)} />
           </form>
 
           {/* Contact Box - medium+ screens */}
