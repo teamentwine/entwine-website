@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import posthog from "posthog-js";
 
 export default function Volunteer() {
@@ -12,14 +12,15 @@ export default function Volunteer() {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
 
+  const [isPhoneValid, setIsPhoneValid] = useState(true)
+  const timeoutRef = useRef(null)
+
   useEffect(() => {
     posthog.capture('volunteer_page_viewed');
   }, []);
 
   // Send the form data to Posthog
   const handleFormSubmit = () => {
-
-    // TODO: Prevent submission if fields are empty
 
     posthog.capture('volunteer_form_submitted',{
       form_name: 'volunteer_form',
@@ -30,13 +31,26 @@ export default function Volunteer() {
       subject : subject,
       message : message,
     });
-
-
   };
 
   const handleIdealistClick = () => {
     posthog.capture('idealist_link_clicked');
   };
+
+  useEffect(()=>{
+    if(phone !== ""){
+        timeoutRef.current = setTimeout(()=>{
+            const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?)?(\d[-.\s]?){6,9}\d$/g
+            const regexResult = phoneRegex.test(phone)
+            if(regexResult){
+                setIsPhoneValid(true)
+            }else{
+                setIsPhoneValid(false)
+            }
+        },500)
+        return () => clearTimeout(timeoutRef.current)
+    }
+  },[phone])
 
   return (
     <main className="bg-white overflow-x-hidden">
@@ -90,6 +104,8 @@ export default function Volunteer() {
       </section>
 
       <section className="pb-24 px-4">
+      {/* phone error msg */}
+      { !isPhoneValid && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid phone number</p>}
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {/* Form */}
           <form
@@ -137,6 +153,7 @@ export default function Volunteer() {
               </div>
             </div>
             <div className="sm:col-span-2 flex justify-center md:justify-end mt-4">
+              {/* Submit button */}
               <button
                 type="submit"
                 form="volunteer-form"

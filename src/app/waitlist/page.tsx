@@ -1,20 +1,59 @@
 'use client'
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import posthog from "posthog-js"
 
 export default function Waitlist () {
+
+    const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [message, setMessage] = useState('')
+    const [orgnizationName, setOrganizationName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [subject, setSubject] = useState('')
+
+    const [isPhoneValid, setIsPhoneValid] = useState(true)
+
+    const timeoutRef = useRef(null);
+
+
     useEffect(() => {
         posthog.capture('waitlist_page_viewed');
     }, []);
 
     const handleFormSubmit = () => {
-        posthog.capture('waitlist_form_submitted');
+
+        posthog.capture('waitlist_form_submitted', {
+            form_name: 'waitlist_form',
+            email : email,
+            firstName :firstName,
+            lastName : lastName,
+            message : message,
+            orgnizationName : orgnizationName,
+            phone : phone,
+            subject : subject
+        });
     };
 
     const handleEmailClick = () => {
         posthog.capture('email_link_clicked');
     };
+
+    useEffect(()=>{
+        if(phone !== ""){
+            timeoutRef.current = setTimeout(()=>{
+                const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?)?(\d[-.\s]?){6,9}\d$/g
+                const regexResult = phoneRegex.test(phone)
+                if(regexResult){
+                    setIsPhoneValid(true)
+                }else{
+                    setIsPhoneValid(false)
+                }
+            },500)
+            return () => clearTimeout(timeoutRef.current)
+        }
+    },[phone])
 
     return(
         <section id="waitlist_page" className="flex flex-col">
@@ -26,17 +65,26 @@ export default function Waitlist () {
                 </div>
                 {/* Form */}
                 <form action="#" onSubmit={handleFormSubmit} className="xxs:w-3/4 2xl:w-5xl flex flex-col mx-auto xxs:my-10 md:my-15 lg:my-20 xl:my-25 2xl:my-30 space-y-5 ">
-                    <input type="text" id="orgnizationName" placeholder="* Organization" className="form-input" required/>
+                    {/* Error Message (if any)*/}
+                    { !isPhoneValid && <p className="text-center text-red-600">* Please enter a valid phone number</p>}
+                    {/* organization name */}
+                    <input type="text" id="orgnizationName" placeholder="* Organization" className="form-input" value={orgnizationName} onChange={(e)=>setOrganizationName(e.target.value)} required/>
                     <div className="flex xxs:space-y-5 md:space-y-0 md:space-x-5 xxs:flex-col md:flex-row">
-                        <input type="text" id="firstName" placeholder="* First Name" className="form-input" required/>
-                        <input type="form-input" id="lastName" placeholder="* Last Name" className="form-input" required/>
+                        {/* first name */}
+                        <input type="text" id="firstName" placeholder="* First Name" className="form-input" value={firstName} onChange={(e)=> setFirstName(e.target.value)} required/>
+                        {/* last name*/}
+                        <input type="form-input" id="lastName" placeholder="* Last Name" className="form-input" value={lastName} onChange={(e)=>setLastName(e.target.value)} required/>
                     </div>
                     <div className="flex xxs:space-y-5 md:space-y-0 md:space-x-5 xxs:flex-col md:flex-row">
-                        <input type="email" id="email" placeholder="* Email" className=" form-input" required/>
-                        <input type="text" id="phone" placeholder="* Phone Number" className="form-input" required/>
+                        {/* email */}
+                        <input type="email" id="email" placeholder="* Email" className=" form-input" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+                        {/* phone */}
+                        <input type="text" id="phone" placeholder="* Phone Number" className="form-input" value={phone} onChange={(e) => setPhone(e.target.value)} required/>
                     </div>
-                    <input type="text" id="subject" placeholder="* Subject" className="form-input" required/>
-                    <textarea type="textarea" rows="5" id="message" className="form-input" placeholder="* Message" required/>
+                    {/* subject line */}
+                    <input type="text" id="subject" placeholder="* Subject" className="form-input" value={subject} onChange={(e)=>setSubject(e.target.value)} required/>
+                    {/* message */}
+                    <textarea type="textarea" rows="5" id="message" className="form-input" placeholder="* Message" value={message} onChange={(e)=> setMessage(e.target.value)} required/>
                     {/* Submit button */}
                     <button type="submit" className="font-body bg-secondary-base-3 xxs:w-1/5 sm:w-1/4 lg:w-1/3 xl:w-1/2 rounded-2xl py-2 self-center border-2 border-dark-border drop-shadow-secondary font-bold cursor-pointer mt-5 xxs:text-sm">SUBMIT</button>
                 </form>
