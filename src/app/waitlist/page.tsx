@@ -14,7 +14,7 @@ export default function Waitlist () {
     const [subject, setSubject] = useState('')
 
     const [isPhoneValid, setIsPhoneValid] = useState(true)
-
+    const [isEmailValidFormat, setIsEmailValidFormat] = useState(true)
     const timeoutRef = useRef(null);
 
 
@@ -55,6 +55,22 @@ export default function Waitlist () {
         }
     },[phone])
 
+    useEffect(()=>{
+        if(email !== ""){
+            timeoutRef.current =  setTimeout(()=>{
+                const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+                const regexResult = emailRegex.test(email);
+                if(regexResult){
+                  setIsEmailValidFormat(true)
+                }else{
+                  setIsEmailValidFormat(false)
+                }
+            },500)
+            return () => clearTimeout(timeoutRef.current);
+        }
+      }, [email])
+    
+
     return(
         <section id="waitlist_page" className="flex flex-col">
                 {/* Call to action */}
@@ -67,6 +83,7 @@ export default function Waitlist () {
                 <form action="#" onSubmit={handleFormSubmit} className="xxs:w-3/4 2xl:w-5xl flex flex-col mx-auto xxs:my-10 md:my-15 lg:my-20 xl:my-25 2xl:my-30 space-y-5 ">
                     {/* Error Message (if any)*/}
                     { !isPhoneValid && <p className="text-center text-red-600">* Please enter a valid phone number</p>}
+                    { !isEmailValidFormat && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid email format</p>}
                     {/* organization name */}
                     <input type="text" id="orgnizationName" placeholder="* Organization" className="form-input" value={orgnizationName} onChange={(e)=>setOrganizationName(e.target.value)} required/>
                     <div className="flex xxs:space-y-5 md:space-y-0 md:space-x-5 xxs:flex-col md:flex-row">
