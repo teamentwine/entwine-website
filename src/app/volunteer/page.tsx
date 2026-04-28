@@ -13,6 +13,7 @@ export default function Volunteer() {
   const [message, setMessage] = useState('')
 
   const [isPhoneValid, setIsPhoneValid] = useState(true)
+  const [isEmailValidFormat, setIsEmailValidFormat] = useState(true)
   const timeoutRef = useRef(null)
 
   useEffect(() => {
@@ -56,6 +57,23 @@ export default function Volunteer() {
         return () => clearTimeout(timeoutRef.current)
     }
   },[phone])
+/* Checks the email input every half a second against a regex email format 
+** NOTE: This does not check to see if email is valid/active 
+*/
+  useEffect(()=>{
+    if(email !== ""){
+        timeoutRef.current =  setTimeout(()=>{
+            const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+            const regexResult = emailRegex.test(email);
+            if(regexResult){
+              setIsEmailValidFormat(true)
+            }else{
+              setIsEmailValidFormat(false)
+            }
+        },500)
+        return () => clearTimeout(timeoutRef.current);
+    }
+  }, [email])
 
   return (
     <main className="bg-white overflow-x-hidden">
@@ -111,6 +129,7 @@ export default function Volunteer() {
       <section className="pb-24 px-4">
       {/* phone error msg */}
       { !isPhoneValid && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid phone number</p>}
+      { !isEmailValidFormat && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid email format</p>}
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {/* Form */}
           <form
