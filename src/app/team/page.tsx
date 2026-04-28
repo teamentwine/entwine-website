@@ -1,6 +1,15 @@
+'use client'
 import Image from "next/image";
 import teamwork_Image from "../assets/teamwork.jpg"
+import posthog from "posthog-js"
+import { useEffect } from "react";
+
 export default function about (){
+
+    useEffect(() => {
+        posthog.capture('team_page_viewed');
+    }, []);
+
     return(
         <section id="aboutus_page" className="flex flex-col">
             {/* team info */}

@@ -80,7 +80,7 @@ export default function Navbar () {
             <div className="nav-area flex bg-background-base">
                 {/* Brand Logo Here */}
                 <div className={`flex flex-col align-center items-center ${isOpen ? " drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
-                    <Link href="/"><Image src={logo} alt="entwine logo" className="logoImage" loading="eager"/></Link>
+                    <Link href="/"><Image src={logo} alt="entwine logo" className="logoImage" loading="eager" onClick={()=> handleNavLinkClick('/')}/></Link>
                 </div>
                 {/* a "div block" to add more spacing between */}
                 <div className="xl:block 2xl:w-100 xl:w-50  xxs:hidden"></div>

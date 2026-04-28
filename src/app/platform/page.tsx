@@ -1,6 +1,15 @@
+'use client'
 import Image from "next/image"
 import climbingImage from "../assets/moutainclimbing.jpg"
+import posthog from "posthog-js"
+import { useEffect } from "react";
+
 export default function Platform () {
+
+    useEffect(() => {
+        posthog.capture('platform_page_viewed');
+    }, []);
+
     return(
         <section id="platofirm_page flex flex-col xxs:relative">
             {/* Top image banner */}
