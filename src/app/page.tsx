@@ -1,10 +1,16 @@
 'use client'
 import Image from "next/image";
 import posthog from "posthog-js";
+import { useEffect } from "react";
 
 const circle = "flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[var(--color-secondary-base-2)] font-bold shadow-[-4px_4px_0px_0px_var(--color-secondary-base-2)]";
 
 export default function Home() {
+
+  useEffect(() => {
+    posthog.capture('home_page_viewed');
+  }, []);
+
   const handleLearnMoreClick = (section: string) => {
     posthog.capture('home_learn_more_clicked', { section });
   };

@@ -22,6 +22,10 @@ export default function Volunteer() {
   // Send the form data to Posthog
   const handleFormSubmit = () => {
 
+    /* form_name - declare the form name here to be represented in PostHog
+    * [key]:[value] - [key] is the name of a property declared within a Property Group in PostHog
+    * (Data-> Property Groups) that stores the structure of the form. [value] - the value you wish to provide for * that property
+    */
     posthog.capture('volunteer_form_submitted',{
       form_name: 'volunteer_form',
       firstName : firstName,
@@ -37,6 +41,7 @@ export default function Volunteer() {
     posthog.capture('idealist_link_clicked');
   };
 
+  /* Checks the phone input every half a second against a regex phone format */
   useEffect(()=>{
     if(phone !== ""){
         timeoutRef.current = setTimeout(()=>{
