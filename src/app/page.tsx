@@ -26,9 +26,9 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section className="w-full max-w-3xl mx-auto px-6 py-14 sm:py-20 text-center">
+      <section className="w-full max-w-4xl px-6 sm:px-8 md:px-10 mx-auto py-14 sm:py-20 text-center">
         {/* Observations */}
-        <h2 className="text-black text-2xl sm:text-3xl font-bold leading-snug">
+        <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold leading-snug">
           Entwine was founded on{' '}
           <span className="text-[var(--color-secondary-base)]">two</span>{' '}observations:
         </h2>
@@ -39,34 +39,32 @@ export default function Homepage() {
           <div className="flex flex-col gap-8 text-left flex-1">
             <div className="flex items-start gap-3">
               <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-base-2)]" />
-              <p className="text-black text-sm sm:text-base leading-snug">
+              <p className="text-black text-sm sm:text-base md:text-lg leading-snug">
                 Collaboration makes problem solving more effective
               </p>
             </div>
 
             <div className="flex items-start gap-3">
               <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-base-2)]" />
-              <p className="text-black text-sm sm:text-base leading-snug">
+              <p className="text-black text-sm sm:text-base md:text-lg leading-snug">
                 But, the barriers to collaborate in the social good sector are too high to be feasible to many organizations
               </p>
             </div>
           </div>
 
           {/* Image */}
-          <div className="flex-1 w-full">
-          <div className="relative w-full aspect-[4/3] sm:aspect-square md:aspect-square bg-black/10">
-        <Image
-          src="/collab.jpg"
-          alt="Collaboration illustration"
-          fill
-          className="object-cover rounded-xl"
-        />
-      </div>
+          <div className="flex-1 w-full flex justify-center">
+            <div className="relative w-[70%] sm:w-[75%] md:w-[85%] lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/3] bg-black/10">
+              <Image
+                src="/collab.jpg"
+                alt="Collaboration illustration"
+                fill className="object-cover rounded-xl" />
+             </div>
           </div>
         </div>
 
         {/* paragraph */}
-        <p className="mt-12 text-black text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        <p className="mt-12 text-black text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           That's why we are building a tool and space that allows organizations with overlapping goals to connect and collaborate in the smoothest and most effortless way possible.
         </p>
 
@@ -75,20 +73,24 @@ export default function Homepage() {
           <a
             href="/platform"
             className="
-              inline-block px-7 py-3 rounded-full border-2 border-black
-              text-black text-sm font-semibold
-              bg-[var(--color-secondary-base-3)] shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
-              active:translate-y-2 active:shadow-none transition">
+            w-full max-w-xs sm:w-auto text-center
+            inline-block px-7 py-3 rounded-full border-2 border-black
+            text-black text-sm do-semibold
+            bg-[var(--color-secondary-base-3)]
+            shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
+            active:translate-y-2 active:shadow-none transition">
             learn about the platform
           </a>
 
           <a
             href="/volunteer"
             className="
-              inline-block px-7 py-3 rounded-full border-2 border-black
-              text-black text-sm font-semibold
-              bg-[var(--color-secondary-base-3)] shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
-              active:translate-y-2 active:shadow-none duration-200">
+            w-full max-w-xs sm:w-auto text-center
+            inline-block px-7 py-3 rounded-full border-2 border-black
+            text-black text-sm do-semibold
+            bg-[var(--color-secondary-base-3)]
+            shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
+            active:translate-y-2 active:shadow-none transition">
             volunteer with us
           </a>
         </div>
