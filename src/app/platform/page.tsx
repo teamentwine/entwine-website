@@ -26,23 +26,23 @@ export default function Platform () {
                 <div className="xxs:space-y-5 md:space-y-10 xxs:mt-5 md:m-10 lg:my-15  ">
                     {/* text group #1 */}
                     <p className="font-body"> To achieve our goals, we are building a digital platform that focuses on minimizing the effort to: </p>
-                    <ul className="list-disc marker:text-secondary-base leading-15 font-light pl-10 md:flex md:justify-between ">
-                        <div className="md:space-y-5 md:max-w-[45%]">
+                    <ul className="list-disc marker:text-secondary-base font-light pl-10 md:flex md:justify-between">
+                        <div className="md:space-y-5 md:w-[45%]">
                             <li className="bulleted-list">Make first contact</li>
                             <li className="bulleted-list">Coordinate actions</li>
                         </div>
-                        <div className="md:max-w-[45%]">
+                        <div className="md:w-[45%]">
                             <li className="bulleted-list">Establish boundaries with any organization</li>
                         </div>
                     </ul>
                     {/* text group #2 */}
                     <p className="font-body">Based on these principles we've decided our platform needs to have a way to:</p>
-                    <ul className="list-disc marker:text-secondary-base leading-15 font-light pl-10 md:flex md:justify-between">
-                        <div className="md:space-y-5 md:max-w-[45%]">
+                    <ul className="list-disc marker:text-secondary-base  font-light pl-10 md:flex md:justify-between">
+                        <div className="md:space-y-5 md:w-[45%]">
                             <li className="bulleted-list">Recommend potential organizations you can collaborate with</li>
                             <li className="bulleted-list">Facilitate communication</li>
                         </div>
-                        <div className="md:space-y-5 md:max-w-[45%]">
+                        <div className="md:space-y-5 md:w-[45%]">
                             <li className="bulleted-list">Signal to the wider community of what types of collaborations you are looking for</li>
                             <li className="bulleted-list">Pick and choose mutual agreements and boundaries with your partners</li>
                         </div>
