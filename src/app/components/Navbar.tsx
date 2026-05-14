@@ -39,8 +39,10 @@ export default function Navbar () {
 
     return(
         <section id="header flex items-center" className={`${ isOpen ? "fixed h-screen overflow-y-auto w-full z-100": ""}`} >
-            <div className="bg-background-dark flex items-center justify-around text-white pt-2 pb-2 md:py-5 xxs:py-2">
-                <div></div>
+            {/* login */}
+            <div className="bg-background-dark flex items-center justify-end-safe text-white py-2 md:py-5 xxs:py-2 relative">
+                {/* link to platfrom */}
+              <p className="absolute xxs:left-10  sm:text-xl xxs:text-xs md:hidden"><Link href="/platform">Platform</Link></p>
                 {/* TODO: Conditional on which of 2 to display later
                 when accounts are implemented */}
                 {/* <div className="user flex items-center">
@@ -52,36 +54,38 @@ export default function Navbar () {
                     </Link>
                     <p className="font-body">Hello, Sierra</p>
                 </div> */}
-                <div className="login-signup flex space-x-2 md:ml-auto md:pr-20">
+                <div className="login-signup flex space-x-2 md:ml-auto xxs:pr-10 md:pr-20">
                     <Link href="#"><p className="font-body">Login</p></Link>
                     <p>/</p>
                     <Link href="#"><p className="font-body">Sign Up</p></Link>
                 </div>
                 {/* - - - */}
 
-                {/* Open mobile menu on mobile */}
-                <div className="sm:w-10 xxs:w-7 md:hidden xxs:block">
-                    {/* hamburger menu icon */}
-                    <Link href="#" aria-label="open mobile menu icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                        </svg>
-                    </Link>
-                    {/* x icon */}
-                    <Link href="#" aria-label="close mobile menu icon">
-                        <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" 
-                        className={`bi bi-x-lg fill-white svg ${isOpen ? "block" : "hidden"}`} onClick={closeMobileMenu} viewBox="0 0 16 16">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                        </svg>
-                    </Link>
-                </div>
             </div>
 
-            <div className="nav-area flex bg-background-base">
-                {/* Brand Logo Here */}
-                <div className={`flex flex-col align-center items-center ${isOpen ? " drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
+            <div className="nav-area flex bg-background-base relative">
+                <div className={`flex justify-center items-center ${isOpen ? "drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
+                    {/* Brand Logo */}
                     <Link href="/"><Image src={logo} alt="entwine logo" className="logoImage" loading="eager" onClick={()=> handleNavLinkClick('/')}/></Link>
+
+                    {/* Open mobile menu on mobile */}
+                    <div className="ml-auto sm:w-10 xxs:w-7 xxs:absolute xxs:right-10 md:hidden xxs:block">
+                        {/* hamburger menu icon */}
+                        <Link href="#" aria-label="open mobile menu icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" className={`bi bi-list svg ${isOpen ? "hidden" : "block"} `} onClick={toggleMobileMenu} viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                        </Link>
+                        {/* x icon */}
+                        <Link href="#" aria-label="close mobile menu icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" 
+                            className={`bi bi-x-lg fill-black svg ${isOpen ? "block" : "hidden"}`} onClick={closeMobileMenu} viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                            </svg>
+                        </Link>
+                    </div>
                 </div>
+                
                 {/* a "div block" to add more spacing between */}
                 <div className="xl:block 2xl:w-100 xl:w-50  xxs:hidden"></div>
                 {/* Menu Naivation Links */}
