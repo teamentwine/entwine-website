@@ -1,9 +1,9 @@
 'use client'
-import Image from "next/image";
-import posthog from "posthog-js";
-import { useEffect } from "react";
 
-const circle = "flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[var(--color-secondary-base-2)] font-bold shadow-[-4px_4px_0px_0px_var(--color-secondary-base-2)]";
+import Image from 'next/image';
+import posthog from 'posthog-js';
+import { useEffect } from 'react';
+
 
 export default function Home() {
 
@@ -11,13 +11,10 @@ export default function Home() {
     posthog.capture('home_page_viewed');
   }, []);
 
-  const handleLearnMoreClick = (section: string) => {
+  const handleButtonClick = (section: string) => {
     posthog.capture('home_learn_more_clicked', { section });
   };
 
-import Image from 'next/image';
-
-export default function Homepage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section */}
@@ -43,23 +40,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-16 md:py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark-text mb-6">
-            About Entwine
-          </h2>
-          <hr className="border-t-4 border-[var(--color-secondary-base)] my-5 mx-auto w-16 md:w-32 lg:w-48 " />
-          <p className="text-dark-text/80 text-base md:text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
-            whatever thou heart desires (place something here).
-          </p>
-          <button onClick={() => handleLearnMoreClick('about')} className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
-            bg-[var(--color-primary-base-2)] transition-colors
-            duration-300 active:bg-[var(--color-primary-base-3)] shadow-[0px_6px_0px_0px_var(--color-primary-base)]">
-            Learn More
-          </button>
-        </div>
-      </section>
       <section className="w-full max-w-4xl px-6 sm:px-8 md:px-10 mx-auto py-14 sm:py-20 text-center">
         {/* Observations */}
         <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold leading-snug">
@@ -76,18 +56,6 @@ export default function Homepage() {
               <p className="text-black text-sm sm:text-base md:text-lg leading-snug">
                 Collaboration makes problem solving more effective
               </p>
-              <button onClick={() => handleLearnMoreClick('info')} className="text-black font-black py-3 px-8 rounded-full text-sm md:text-base border-2 border-black
-                bg-[var(--color-secondary-base-2)] transition-colors
-                duration-300 active:bg-[var(--color-secondary-base-3)] shadow-[-6px_6px_0px_0px_var(--color-secondary-base)]">
-                Learn More
-              </button>
-            </div>
-            <div>
-            <div className="order-2 md:order-1 relative h-80 md:h-96 rounded-lg">
-              <Image
-                src="/drawing.jpg"
-                alt="Drawing Image"
-                fill className="object-cover rounded-lg" />
             </div>
 
             <div className="flex items-start gap-3">
@@ -118,10 +86,11 @@ export default function Homepage() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/platform"
+            onClick={() => handleButtonClick('platform')}
             className="
             w-full max-w-xs sm:w-auto text-center
             inline-block px-7 py-3 rounded-full border-2 border-black
-            text-black text-sm do-semibold
+            text-black text-sm font-semibold
             bg-[var(--color-secondary-base-3)]
             shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
             active:translate-y-2 active:shadow-none transition">
@@ -130,10 +99,11 @@ export default function Homepage() {
 
           <a
             href="/volunteer"
+            onClick={() => handleButtonClick('volunteer')}
             className="
             w-full max-w-xs sm:w-auto text-center
             inline-block px-7 py-3 rounded-full border-2 border-black
-            text-black text-sm do-semibold
+            text-black text-sm font-semibold
             bg-[var(--color-secondary-base-3)]
             shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
             active:translate-y-2 active:shadow-none transition">
