@@ -57,9 +57,9 @@ export default function about (){
                     {/* card text */}
                     <div className="founderCard cardv1">
                         <div className="card_content_container">
-                            <p className="card_name">Lorem I.</p>
-                            <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
-                            <p className="cart_about">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                            <p className="card_name">Shom</p>
+                            {/* <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p> */}
+                            <p className="cart_about">Hi, I’m Shom Tailor, one of the co-directors and founders of Entwine. One of my biggest motivations for helping create Entwine was the belief that technology should serve society and create positive change. It can often feel like technology does more harm than good, but I hope Entwine can help show that it also has the power to connect people and improve lives. Outside of Entwine, I love playing and watching soccer, and I’m a huge fan of FC Barcelona.</p>
                         </div>
                     </div>
                 </div>
@@ -73,9 +73,10 @@ export default function about (){
                     {/* card text */}
                     <div className="founderCard cardv2">
                         <div className="card_content_container">
-                            <p className="card_name">Lorem I.</p>
-                            <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
-                            <p className="cart_about">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                            <p className="card_name">Noel</p>
+                            {/* <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p> */}
+                            <p className="cart_about">Hello, I am Noel Kurian, the cofounder and co executive here at Entwine. The inspiration to create Entwine came from a class that me and Shom were in back in high school where we saw a video in biology about creating natural bridges for animals to cross. We saw something totally different and a space to have a positive impact on the world as different non-profits were struggling with similar issues, all while feeling disconnected.</p>
+                            <p className="cart_about">Outside of my responsibilities at Entwine, I love biking and enjoying the great outdoors, while also being a huge sports fan. Go Eagles! Feel free to email me at: <a className="text-blue-900" href="mailto:noelk@projectentwine.org">noelk@projectentwine.org</a></p>
                         </div>
                     </div>
                 </div>

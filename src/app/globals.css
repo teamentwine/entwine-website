@@ -191,6 +191,8 @@
 .founderCard div .cart_about{
   @apply
   text-start
+  indent-5
+
 }
 
 /* Form (Waitlist)*/
