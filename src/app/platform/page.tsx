@@ -36,22 +36,27 @@ export default function Platform () {
                         </div>
                     </ul>
                     {/* text group #2 */}
-                    <p className="font-body">Based on these principles we've decided our platform needs to have a way to:</p>
+                    <p className="font-body">Based on these principles we've decided our platform will need to have a way to:</p>
                     <ul className="list-disc marker:text-secondary-base  font-light pl-10 md:flex md:justify-between">
                         <div className="md:space-y-5 md:w-[45%]">
-                            <li className="bulleted-list">Recommend potential organizations you can collaborate with</li>
-                            <li className="bulleted-list">Facilitate communication</li>
+                            <li className="bulleted-list">Recommend potential organizations you can collaborate with
+                            </li>
+                            <li className="bulleted-list">Signal what types of collaborations
+                                you are looking for
+                            </li>
                         </div>
                         <div className="md:space-y-5 md:w-[45%]">
-                            <li className="bulleted-list">Signal to the wider community of what types of collaborations you are looking for</li>
-                            <li className="bulleted-list">Pick and choose mutual agreements and boundaries with your partners</li>
+                            <li className="bulleted-list">Pick and arrange mutual agreements and boundaries with your
+                                partners
+                            </li>
+                            <li className="bulleted-list">Facilitate communication</li>
                         </div>
                     </ul>
                 </div>
             </div>
             {/* Our Journey / Timeline History */}
-            <div className="flex xxs:flex-col xxs:mx-5 md:mx-auto lg:flex-row  max-w-6xl  ">
-                {/* Heading and image */}
+            {/*<div className="flex xxs:flex-col xxs:mx-5 md:mx-auto lg:flex-row  max-w-6xl  ">
+                 Heading and image
                 <div className="flex xxs:mx-5 sm:mx-10 md:mx-20 lg:ml-10 lg:mr-0 xxs:flex-col-reverse lg:flex-col lg:translate-y-40">
                     <div className="lg:mb-20">
                         <p className="text-6xl xxs:text-xl sm:text-2xl md:text-5xl 2xl:text-6xl text-primary-base font-bold xxs:mb-5 md:mb-10">OUR</p>
@@ -62,45 +67,45 @@ export default function Platform () {
                         <a href="https://www.vecteezy.com/free-vector/conference" className="text-[0.5rem]">Conference Vectors by Vecteezy</a>
                         </div>
                     </div>
-                {/* timeline */}
+                 timeline
                 <div className="font-body relative xxs:mb-10 sm:mx-10 md:mx-20 lg:mx-10 xxs:mt-20 md:mt-40">
-                    {/* line */}
+                     line
                     <div className="benchmark-line bg-[#989898aa] z-[-1] absolute"></div>
-                    {/* benchmark */}
+                     benchmark
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
-                        {/* circle marker */}
+                         circle marker
                         <div className="benchmark-marker flex-none   bg-secondary-base border-1 rounded-full align-end"></div>
-                        {/* heading and text */}
+                         heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>
                             <p className="benchmark-body-text font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum nisl ut orci ultricies, ut malesuada felis elementum. Curabitur condimentum scelerisque ligula a iaculis.</p>
                         </div>
                     </div>
-                    {/* benchmark */}
+                     benchmark
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
-                        {/* circle marker */}
+                         circle marker
                         <div className="benchmark-marker flex-none   bg-primary-base border-1 rounded-full align-end"></div>
-                        {/* heading and text */}
+                         heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>
                             <p className="benchmark-body-text font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum nisl ut orci ultricies, ut malesuada felis elementum. Curabitur condimentum scelerisque ligula a iaculis.</p>
                         </div>
                     </div>
-                    {/* benchmark */}
+                     benchmark
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
-                        {/* circle marker */}
+                         circle marker
                         <div className="benchmark-marker flex-none   bg-secondary-base border-1 rounded-full align-end"></div>
-                        {/* heading and text */}
+                         heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>
                             <p className="benchmark-body-text font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum nisl ut orci ultricies, ut malesuada felis elementum. Curabitur condimentum scelerisque ligula a iaculis.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </section>
     )
 }

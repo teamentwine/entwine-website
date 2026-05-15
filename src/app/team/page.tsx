@@ -30,7 +30,7 @@ export default function about (){
                         </div>
                     </div>
                 
-                    <p className="aboutus-text">In 2024, we started this project as a group of 4 high school students and since then, even as we've gone to different colleges we have been working to build this dreams we had... Praesent vel porta nulla. Nullam a dolor gravida, fringilla ex in, rutrum quam. Cras urna lacus, mollis ac laoreet sit amet, tincidunt ac nisi.</p>
+                    <p className="aboutus-text">In 2024, we started this project as a group of 4 high school students sitting in a classroom after just finishing finals. Since then, even as we've gone to different colleges we have been working to build the dreams we had. Learn more about us 4 below.</p>
 
                 </div>
             </div>
