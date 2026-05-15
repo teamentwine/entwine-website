@@ -51,7 +51,7 @@ export default function about (){
                 {/* card 1 */}
                 <div className="relative">
                     {/* card photo */}
-                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/profilecard.jpg')]
+                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/shom_pfp.png')] bg-center bg-cover
                    ">     
                     </div>
                     {/* card text */}
@@ -67,9 +67,7 @@ export default function about (){
                 {/* card 2 */}
                 <div className="relative lg:mt-25">
                     {/* card photo */}
-                    <div className="cardProfileImage cardRightProfile bg-[url('./assets/profilecard.jpg')] 
-                   ">     
-                    </div>
+                    <div className="cardProfileImage cardRightProfile object-center bg-[url('./assets/noel_pfp.png')] bg-center bg-cover"></div>
                     {/* card text */}
                     <div className="founderCard cardv2">
                         <div className="card_content_container">
@@ -85,7 +83,7 @@ export default function about (){
                 <div className="relative">
                     {/* card photo */}
                     <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/profilecard.jpg')]
-                   ">     
+                   ">
                     </div>
                     {/* card text */}
                     <div className="founderCard cardv1">
