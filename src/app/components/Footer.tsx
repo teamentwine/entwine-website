@@ -16,6 +16,10 @@ export default function Footerbar () {
     const handleSocialLinkClick = (platform: string) => {
         posthog.capture('social_link_clicked', { platform });
     };
+
+    const handleFooterNavLinkClick = (label: string) => {
+        posthog.capture('footer_nav_link_clicked', { label });
+    };
   
     return(
         <section id="footer" className="bg-background-base flex flex-col">  
@@ -49,10 +53,10 @@ export default function Footerbar () {
                 <div className="md:space-y-8 xxs:space-y-5 flex flex-col">
                     {/* menu links */}
                     <div className="xxs:grid md:grid-cols-5 xxs:grid-cols-3 items-center md:text-right md:gap-4 xxs:gap-10 font-body md:text-sm sm:text-lg xs:text-sm xxs:text-xs font-bold uppercase">
-                        <Link href="/team"><p>team</p></Link>
-                        <Link href="/volunteer"><p>volunteer</p></Link>
-                        <Link href="/waitlist"><p>waitlist</p></Link>
-                        <Link href="/platform"><p>platform</p></Link>
+                        <Link href="/team" onClick={() => handleFooterNavLinkClick('team')}><p>team</p></Link>
+                        <Link href="/volunteer" onClick={() => handleFooterNavLinkClick('volunteer')}><p>volunteer</p></Link>
+                        <Link href="/waitlist" onClick={() => handleFooterNavLinkClick('waitlist')}><p>waitlist</p></Link>
+                        <Link href="/platform" onClick={() => handleFooterNavLinkClick('platform')}><p>platform</p></Link>
                         {/* <Link href="#"><p>donate</p></Link> */}
                     </div>
                     {/* copyright*/}

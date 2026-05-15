@@ -13,7 +13,7 @@ export default function Platform () {
     return(
         <section id="platofirm_page flex flex-col xxs:relative">
             {/* Top image banner */}
-            <div className="flex flex-col bg-[url('./assets/platformImg.jpg')] xxs:bg-no-repeat xxs:h-50 xs:h-70 lg:h-90 xl:h-100 2xl:h-120 xxs:bg-cover xxs:bg-center xxs:justify-center">
+            <div className="flex flex-col bg-[url('./assets/platformImg.jpg')] xxs:bg-no-repeat xxs:h-50 xs:h-70 lg:h-90 xl:h-100 2xl:h-120 xxs:bg-cover xxs:bg-center xxs:justify-center bg-cover bg-black/50 bg-blend-multiply">
                 {/* Text Heading */}
                 <div className="flex flex-col xxs:space-y-2 xxs:mx-auto ">
                     <p className="font-body text-secondary-base xxs:text-lg xs:text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl">THE</p>

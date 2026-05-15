@@ -21,6 +21,14 @@ export default function Navbar () {
         closeMobileMenu();
         posthog.capture('nav_link_clicked', { label });
     };
+
+    const handleLoginClick = () => {
+        posthog.capture('login_clicked');
+    };
+
+    const handleSignupClick = () => {
+        posthog.capture('signup_clicked');
+    };
     /* Closes the menu when window goes out of mobile size
     ** Prevents issue where opened mobile menu on screen expansion
     ** messes with desktop/tablet menu layout
@@ -39,13 +47,13 @@ export default function Navbar () {
 
     return(
         <section id="header flex items-center" className={`${ isOpen ? "fixed h-screen overflow-y-auto w-full z-100": ""}`} >
-            {/* login */}
+            {/* login
             <div className="bg-background-dark flex items-center justify-end-safe text-white py-2 md:py-5 xxs:py-2 relative">
-                {/* link to platfrom */}
+                 link to platfrom
               <p className="absolute xxs:left-10  sm:text-xl xxs:text-xs md:hidden"><Link href="/platform">Platform</Link></p>
-                {/* TODO: Conditional on which of 2 to display later
-                when accounts are implemented */}
-                {/* <div className="user flex items-center">
+                 TODO: Conditional on which of 2 to display later
+                when accounts are implemented
+                 <div className="user flex items-center">
                     <Link href="#" className="sm:w-8 xxs:w-5 mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-person-circle mr-3 svg" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -53,15 +61,15 @@ export default function Navbar () {
                         </svg>
                     </Link>
                     <p className="font-body">Hello, Sierra</p>
-                </div> */}
-                <div className="login-signup flex space-x-2 md:ml-auto xxs:pr-10 md:pr-20">
-                    <Link href="#"><p className="font-body">Login</p></Link>
-                    <p>/</p>
-                    <Link href="#"><p className="font-body">Sign Up</p></Link>
                 </div>
-                {/* - - - */}
+                <div className="login-signup flex space-x-2 md:ml-auto xxs:pr-10 md:pr-20">
+                    <Link href="#" onClick={handleLoginClick}><p className="font-body">Login</p></Link>
+                    <p>/</p>
+                    <Link href="#" onClick={handleSignupClick}><p className="font-body">Sign Up</p></Link>
+                </div>
+                 - - -
 
-            </div>
+            </div>*/}
 
             <div className="nav-area flex bg-background-base relative">
                 <div className={`flex justify-center items-center ${isOpen ? "drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
