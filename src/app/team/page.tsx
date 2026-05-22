@@ -4,7 +4,7 @@ import teamwork_Image from "../assets/teamwork.jpg"
 import posthog from "posthog-js"
 import { useEffect } from "react";
 
-export default function about (){
+export default function About (){
 
     useEffect(() => {
         posthog.capture('team_page_viewed');

@@ -111,7 +111,7 @@ export default function Waitlist () {
                     {/* subject line */}
                     <input type="text" id="subject" placeholder="* Subject" className="form-input" value={subject} onChange={(e)=>setSubject(e.target.value)} required/>
                     {/* message */}
-                    <textarea type="textarea" rows="5" id="message" className="form-input" placeholder="* Message" value={message} onChange={(e)=> setMessage(e.target.value)} required/>
+                    <textarea  rows={5} id="message" className="form-input" placeholder="* Message" value={message} onChange={(e)=> setMessage(e.target.value)} required/>
                     {/* Submit button */}
                     <button type="submit" className="font-body bg-secondary-base-3 xxs:w-1/5 sm:w-1/4 lg:w-1/3 xl:w-1/2 rounded-2xl py-2 self-center border-2 border-dark-border drop-shadow-secondary font-bold cursor-pointer mt-5 xxs:text-sm">SUBMIT</button>
                 </form>
