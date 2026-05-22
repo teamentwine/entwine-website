@@ -15,7 +15,7 @@ export default function Waitlist () {
 
     const [isPhoneValid, setIsPhoneValid] = useState(true)
     const [isEmailValidFormat, setIsEmailValidFormat] = useState(true)
-    const timeoutRef = useRef(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
 
     useEffect(() => {
@@ -51,7 +51,12 @@ export default function Waitlist () {
                     setIsPhoneValid(false)
                 }
             },500)
-            return () => clearTimeout(timeoutRef.current)
+            return () => {
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current)
+                    timeoutRef.current = null
+                }
+            }
         }
     },[phone])
 
@@ -66,7 +71,12 @@ export default function Waitlist () {
                   setIsEmailValidFormat(false)
                 }
             },500)
-            return () => clearTimeout(timeoutRef.current);
+            return () => {
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current)
+                    timeoutRef.current = null
+                }
+            }
         }
       }, [email])
     
