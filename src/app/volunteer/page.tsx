@@ -14,7 +14,7 @@ export default function Volunteer() {
 
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isEmailValidFormat, setIsEmailValidFormat] = useState(true)
-  const timeoutRef = useRef(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     posthog.capture('volunteer_page_viewed');
