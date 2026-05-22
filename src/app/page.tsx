@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import posthog from 'posthog-js';
 import { useEffect } from 'react';
-
+import heroImg from './assets/home1.jpg';
 
 export default function Home() {
 
@@ -18,24 +18,18 @@ export default function Home() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full sm:h-[400px] min-h-[300px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full sm:h-[400px] min-h-[300px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden bg-[url('./assets/home1.jpg')] bg-cover bg-center bg-black/60 bg-blend-multiply">
         <div className="absolute inset-0 bg-cover bg-center" />
-        <Image
-          src="/hero-image.jpg"
-          alt="Hero background"
-          fill
-          className="object-cover"
-        />
         <div className="absolute inset-0 bg-black/10" />
 
         <div className="relative z-10 text-center justify-center px-8">
-          <h1 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
             ENTWINE
           </h1>
           <p className="mt-4 sm:text-xl md:text-2xl lg:text-3xl">
             <span className="text-[var(--color-primary-base-2)]">connect.</span>
             <span className="text-[var(--color-secondary-base)]">collaborate.</span>
-            <span className="text-black">entwine</span>
+            <span className="text-white">entwine</span>
           </p>
         </div>
       </section>
@@ -68,12 +62,9 @@ export default function Home() {
 
           {/* Image */}
           <div className="flex-1 w-full flex justify-center">
-            <div className="relative w-[70%] sm:w-[75%] md:w-[85%] lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/3] bg-black/10">
-              <Image
-                src="/collab.jpg"
-                alt="Collaboration illustration"
-                fill className="object-cover rounded-xl" />
-             </div>
+            <div
+                className="relative w-[70%] sm:w-[75%] md:w-[85%] lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/3] bg-[url('./assets/home2.jpg')] bg-cover bg-center rounded-xl"
+            />
           </div>
         </div>
 

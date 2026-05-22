@@ -51,15 +51,28 @@ export default function about (){
                 {/* card 1 */}
                 <div className="relative">
                     {/* card photo */}
-                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/shom_pfp.png')] bg-center bg-cover
-                   ">     
-                    </div>
+                    <div
+                        className="
+                            cardProfileImage
+                            cardLeftProfile
+                            overflow-hidden
+                            rounded-2xl
+                            bg-[url('./assets/shom_pfp.jpg')]
+                            bg-[length:400%]
+                            bg-[400%_20%]
+                            bg-no-repeat
+                          "
+                    ></div>
                     {/* card text */}
                     <div className="founderCard cardv1">
                         <div className="card_content_container">
                             <p className="card_name">Shom</p>
                             {/* <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p> */}
                             <p className="cart_about">Hi, I’m Shom Tailor, one of the co-directors and founders of Entwine. One of my biggest motivations for helping create Entwine was the belief that technology should serve society and create positive change. It can often feel like technology does more harm than good, but I hope Entwine can help show that it also has the power to connect people and improve lives. Outside of Entwine, I love playing and watching soccer, and I’m a huge fan of FC Barcelona.</p>
+                            <p className="cart_about"> Have any feedback or thoughts email me at <a
+                                className="text-blue-900"
+                                href="mailto:noelk@projectentwine.org">shomt@projectentwine.org</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -88,9 +101,12 @@ export default function about (){
                     {/* card text */}
                     <div className="founderCard cardv1">
                         <div className="card_content_container">
-                            <p className="card_name">Lorem I.</p>
-                            <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
-                            <p className="cart_about">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                            <p className="card_name">JD</p>
+                            <p className="card_about">Hello, I’m Jeyadev Jayaprakash, I go by JD. I’m one of the cofounders at Entwine. I tend to focus more on people and connections, as it goes better with my mixed pre-med/biology interests. More importantly, I love seeing how my actions can make a difference in other’s lives and personal goals. That smile's always worth my time. Away from Entwine, I like to game to experience stories firsthand from people I’d never meet, and finding new hobbies to hyperfixate on for a few months.</p>
+                            <p className="cart_about">If you want to talk about Entwine or anything, please email me at <a
+                                className="text-blue-900"
+                                href="mailto:jjayaprakash@projectentwine.org">jjayaprakash@projectentwine.org</a>
+                                !</p>
                         </div>
                     </div>
                 </div>
@@ -98,19 +114,20 @@ export default function about (){
                 {/* card 4 */}
                 <div className="relative lg:mt-25">
                     {/* card photo */}
-                    <div className="cardProfileImage cardRightProfile bg-[url('./assets/profilecard.jpg')] 
-                   ">     
-                    </div>
+                    <div
+                        className="cardProfileImage cardRightProfile object-center bg-[url('./assets/profilecard.jpg')] bg-center bg-cover"></div>
                     {/* card text */}
                     <div className="founderCard cardv2">
                         <div className="card_content_container">
-                            <p className="card_name">Lorem I.</p>
-                            <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p>
-                            <p className="cart_about">Suspendisse sodales dolor vel condimentum tincidunt. Vestibulum interdum blandit tincidunt. Aenean ultricies augue ac lorem consequat,</p>
+                            <p className="card_name">Chris</p>
+                            {/* <p className="card_quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit”</p> */}
+                            <p className="cart_about">Hello, I’m Chris Peter, and I’m one of the cofounders at Entwine. I’ve seen the role that nonprofits play in our community and am part of a religious nonprofit in the RTP area. The framework of emphasizing communication and collaboration over competition really appealed to me, hopefully making Entwine the start of something bigger and making a positive impact in nonprofit culture.</p>
+                            <p className="cart_about">Outside of Entwine, I’m very interested in linguistics and political data analytics, and enjoy watching sports, playing chess, and going outside in my free time. Feel free to email me at   <a className="text-blue-900"
+                                                href="mailto:chrisp@projectentwine.org">chrisp@projectentwine.org</a>!</p>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </section>
     )
