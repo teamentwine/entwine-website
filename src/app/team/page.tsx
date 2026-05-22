@@ -95,7 +95,7 @@ export default function About (){
                 {/* card 3 */}
                 <div className="relative">
                     {/* card photo */}
-                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/profilecard.jpg')]
+                    <div className="cardProfileImage cardLeftProfile  bg-[url('./assets/jd_pfp.jpg')]
                    ">
                     </div>
                     {/* card text */}
@@ -115,7 +115,7 @@ export default function About (){
                 <div className="relative lg:mt-25">
                     {/* card photo */}
                     <div
-                        className="cardProfileImage cardRightProfile object-center bg-[url('./assets/profilecard.jpg')] bg-center bg-cover"></div>
+                        className="cardProfileImage cardRightProfile object-center bg-[url('./assets/chris_pfp.jpeg')] bg-center bg-cover"></div>
                     {/* card text */}
                     <div className="founderCard cardv2">
                         <div className="card_content_container">
