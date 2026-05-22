@@ -54,7 +54,11 @@ export default function Volunteer() {
                 setIsPhoneValid(false)
             }
         },500)
-        return () => clearTimeout(timeoutRef.current)
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+        }
+      }
     }
   },[phone])
 /* Checks the email input every half a second against a regex email format 
@@ -71,7 +75,11 @@ export default function Volunteer() {
               setIsEmailValidFormat(false)
             }
         },500)
-        return () => clearTimeout(timeoutRef.current);
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+        }
+      }
     }
   }, [email])
 
