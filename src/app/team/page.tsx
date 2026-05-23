@@ -18,7 +18,7 @@ export default function About (){
 
                     <div className="flex xxs:flex-col xs:flex-row justify-between xxs:space-y-5">
                         <div className="xxs:self-start xs:self-end lg:self-center xxs:space-y-5 space-y-10">
-                            <p className="font-body text-secondary-base-2 xxs:text-base md:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>
+                            {/*<p className="font-body text-secondary-base-2 xxs:text-base md:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>*/}
                             <p className="font-body font-bold xxs:text-2xl sm:text-3xl md:text-4xl xl:text-5xl xxs:border-l-4 md:border-l-8 border-primary-base-2 pl-5">OUR TEAM</p>
                         </div>
                         
@@ -30,7 +30,7 @@ export default function About (){
                         </div>
                     </div>
                 
-                    <p className="aboutus-text">In 2024, we started this project as a group of 4 high school students sitting in a classroom after just finishing finals. Since then, even as we've gone to different colleges we have been working to build the dreams we had. Learn more about us 4 below.</p>
+                    <p className="aboutus-text">In 2024, we started this project as a group of 4 high school students sitting in a classroom after just finishing finals. Since then, even as we've gone to different colleges we have been working to build the dreams we had with a team of 10 people total. Learn more about our 4 founders below.</p>
 
                 </div>
             </div>

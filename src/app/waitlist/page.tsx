@@ -87,14 +87,14 @@ export default function Waitlist () {
 
             <div
                 className="flex flex-col items-center xxs:mx-5 xs:mx-8 sm:mx-15 2xl:mx-20 xxs:mt-10 sm:mt-20 xl:mt-30 xxs:space-y-5 md:space-y-10 2xl:space-y-20 ">
-                <p className="font-body text-secondary-base xxs:text-base sm:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold">JOIN
+                <p className="font-body text-secondary-base xxs:text-base sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold">JOIN
                     THE</p>
-                <p className="font-body xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black">WAITLIST<span
+                <p className="font-body xxs:text-2xl xs:text-3xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black">WAITLIST<span
                     className="text-secondary-base">!</span></p>
                 <p className="font-body xxs:text-xs sm:text-base lg:text-lg 2xl:text-3xl text-center">If you're a
                     non-profit interested in our mission or want to hear more about the vision, please fill out our
                     interest form or email us at <Link href="#" onClick={handleEmailClick}><span
-                        className="underline">info@entwine.org</span>.</Link> We'd love to hear any feedback or ideas we
+                        className="underline">contact@projectentwine.org</span>.</Link> We'd love to hear any feedback or ideas we
                     can. Thank you!</p>
             </div>
             {/* Form */}
