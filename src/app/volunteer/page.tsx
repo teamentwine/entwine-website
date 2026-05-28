@@ -110,8 +110,8 @@ export default function Volunteer() {
           {/* Contact Box - small screen */}
           <div className="md:hidden flex-shrink-0 w-48 sm:w-56 border-2 border-black rounded-2xl p-4 sm:p-6 shadow-[-6px_6px_0px_0px_var(--color-primary-base)] h-fit text-center">
             <h3 className="text-lg sm:text-xl font-bold mb-3">Contact Us</h3>
-            <p className="text-xs sm:text-sm mb-1">Phone: +1 (252) 368-9463</p>
-            <p className="text-xs sm:text-sm mb-3">Email: contact@projectentwine.org</p>
+            <p className="text-xs sm:text-xs mb-1">Phone: +1 (252) 368-9463</p>
+            <p className="text-xs sm:text-xs mb-3">Email: contact@projectentwine.org</p>
             <h4 className="text-lg sm:text-xl font-bold mb-3">Socials</h4>
             <div className="flex gap-3 text-xl justify-center">
             <a href="https://www.facebook.com/profile.php?id=61566499317368" target="_blank" rel="noopener noreferrer">
