@@ -1,7 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-/* Use The layer base! Prevents issues with applying margins inline styles not working */
+/*
+ * THEME GUIDE
+ *
+ * Colors are semantic, not literal — pick by role, not by hue:
+ *   surface / surface-alt / surface-dark   backgrounds
+ *   ink                                    default text + borders (near-black)
+ *   brand-cyan(-light|-pale)               blue brand color: backgrounds, borders, icons, shadows
+ *   brand-orange(-light|-pale)             orange brand color: backgrounds, borders, icons, shadows
+ *   brand-cyan-text / brand-orange-text    darkened, WCAG AA-safe (4.5:1+) variants —
+ *                                          use these instead of the plain brand color for any
+ *                                          actual text or icon at normal size/weight. The plain
+ *                                          brand-cyan/brand-orange colors fail AA contrast on
+ *                                          white/tan and should stay on backgrounds/decoration only.
+ *
+ * Reusable classes (see below): .field-input, .btn-lift, .card-outline,
+ * .heading-eyebrow, .heading-display — use these instead of retyping the same
+ * border/shadow/typography utility strings on every page.
+ */
 @layer base{ *,
   ::after,
   ::before,
@@ -11,37 +28,49 @@
     margin: 0;
     padding: 0;
   }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  /* Visible keyboard-focus ring on every interactive element (accessibility) */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-brand-cyan);
+    outline-offset: 2px;
+  }
 }
 @theme {
 
   /* Fonts */
   --font-body: "Inter", sans-serif;
 
-  /* Theme Colors - Change Colors Here with different color codes */
-  /* Tan*/
-  --color-background-base: #F1EDE3; 
+  /* Surfaces */
+  --color-surface-alt: #F1EDE3; /* tan */
+  --color-surface-dark: #282315;
 
-  /* main body text */
-  --color-dark-text: #1B150E; 
+  /* Default text + borders */
+  --color-ink: #1B150E;
 
-  /* Dark */
-  --color-background-dark: #282315;
-  --color-dark-border: #1B150E; 
- 
-  /* blues */
-  --color-primary-base: #12BFCE;
-  --color-primary-base-2: #64D1E4;
-  --color-primary-base-3: #B5E2FA;
-  --drop-shadow-primary: 0px 5px 1px #18BFCC;
-  --drop-shadow-cardv1: -12px 10px 1px #64D1E4;
+  /* Brand: cyan */
+  --color-brand-cyan: #12BFCE;
+  --color-brand-cyan-light: #64D1E4;
+  --color-brand-cyan-pale: #B5E2FA;
+  --color-brand-cyan-text: #0B7680; /* AA-safe on white/tan, use for text/icons */
+  --drop-shadow-cyan: 0px 5px 1px #18BFCC;
+  --drop-shadow-card-cyan: -12px 10px 1px #64D1E4;
 
-  /* orange */
-  --color-secondary-base: #F86624;
-  --color-secondary-base-2: #F8834B;
-  --color-secondary-base-3: #F7A072;
-  --drop-shadow-secondary: 0px 5px 1px #F76725;
-  --drop-shadow-cardv2: -12px 10px 1px #F8834C;
- 
+  /* Brand: orange */
+  --color-brand-orange: #F86624;
+  --color-brand-orange-light: #F8834B;
+  --color-brand-orange-pale: #F7A072;
+  --color-brand-orange-text: #BE3F06; /* AA-safe on white/tan, use for text/icons */
+  --drop-shadow-orange: 0px 5px 1px #F76725;
+  --drop-shadow-card-orange: -12px 10px 1px #F8834C;
+
   /* Additional Custom Breakpoints for smaller mobile sizes */
   --breakpoint-xxs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
@@ -68,7 +97,7 @@
   md:items-center
   md:flex-row xxs:flex-col
   md:py-4
-  xxs:border-b-3 border-background-dark
+  xxs:border-b-3 border-surface-dark
 }
 /* Buttons (orange and blue btns) */
 .primary-btn, .secondary-btn{
@@ -76,18 +105,18 @@
   py-1 px-5
   font-body
   lg:rounded-3xl md:rounded-2xl
-  border-2 border-dark-border
+  border-2 border-ink
   cursor-pointer
 }
 .primary-btn{
   @apply
-  bg-primary-base-2 
-  drop-shadow-primary
+  bg-brand-cyan-light 
+  drop-shadow-cyan
 }
 .secondary-btn{
   @apply
-  bg-secondary-base-3 
-  drop-shadow-secondary
+  bg-brand-orange-pale 
+  drop-shadow-orange
 }
 /* mobile version of nav area */
 .mobile-menu-view{
@@ -114,7 +143,7 @@
 }
 .mobile-menu-view p{
   @apply
-  border-b-2 border-dark-border
+  border-b-2 border-ink
   xxs:pb-5
   xxs:tracking-[8]
   xxs:text-2xl
@@ -144,13 +173,13 @@
   @apply
   xxs:top-[-70] xs:top-[-50] md:top-[-80] 
   xxs:left-[80] xs:left-[270] sm:left-[390] md:left-[430] lg:left-[300]
-  xxs:drop-shadow-[_-5px_3px_#F8834C] md:drop-shadow-cardv2
+  xxs:drop-shadow-[_-5px_3px_#F8834C] md:drop-shadow-card-orange
 }
 .cardProfileImage.cardLeftProfile{
   @apply
   xxs:top-[-70] xs:top-[-50]  md:top-[-80] 
   xxs:left-[80] xs:left-[-50] sm:left-[-55] md:left-[-80]
-  xxs:drop-shadow-[_-5px_3px_#64D1E4]  md:drop-shadow-cardv1
+  xxs:drop-shadow-[_-5px_3px_#64D1E4]  md:drop-shadow-card-cyan
 }
 .founderCard{
   @apply
@@ -165,12 +194,12 @@
 .founderCard.cardv1{
   @apply
   xxs:drop-shadow-[_-5px_5px_#F8834C]
-  md:drop-shadow-cardv2
+  md:drop-shadow-card-orange
 }
 .founderCard.cardv2{
   @apply
   xxs:drop-shadow-[_-5px_5px_#64D1E4]
-  md:drop-shadow-cardv1
+  md:drop-shadow-card-cyan
 }
 .founderCard .card_content_container{
   @apply
@@ -195,14 +224,60 @@
 
 }
 
-/* Form (Waitlist)*/
-.form-input{
+/* Forms — shared across every page with an input/textarea/file field */
+.field-input{
   @apply
-    border-1 border-dark-border
-    rounded-xl
+    border-2 border-ink
+    rounded-lg
     w-full
-    xxs:text-xs sm:text-base xl:text-lg 2xl:text-xl
     p-3
+    bg-white
+}
+.field-input[type="file"]{
+  @apply
+    file:mr-4 file:py-1 file:px-3
+    file:rounded-lg file:border-0
+    file:bg-brand-orange-pale file:font-semibold file:cursor-pointer
+    cursor-pointer
+}
+
+/* Bordered/shadowed card used for contact boxes, etc. */
+.card-outline{
+  @apply
+    border-2 border-ink
+    rounded-2xl
+    shadow-[-6px_6px_0px_0px_var(--color-brand-cyan)]
+    h-fit
+}
+
+/* Shadow-lift button used for form submits — press effect on click */
+.btn-lift{
+  @apply
+    font-extrabold
+    rounded-2xl
+    border-2 border-ink
+    bg-brand-orange-pale
+    shadow-[0px_6px_0px_0px_var(--color-brand-orange)]
+    active:translate-y-2 active:shadow-none
+    transition
+    disabled:opacity-50 disabled:cursor-not-allowed
+}
+
+/* Hero heading pair: small eyebrow line + big display line (waitlist, volunteer, etc.) */
+.heading-eyebrow{
+  @apply
+    text-xl sm:text-3xl md:text-4xl lg:text-5xl
+    font-extrabold
+    text-brand-orange-text
+    mb-4 md:mb-6
+}
+.heading-display{
+  @apply
+    text-2xl sm:text-3xl md:text-6xl lg:text-7xl
+    font-black
+    text-ink
+    mb-4 md:mb-6
+    break-words
 }
 
 /* Platform page*/

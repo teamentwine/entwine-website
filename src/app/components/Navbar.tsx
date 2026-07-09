@@ -48,7 +48,7 @@ export default function Navbar () {
     return(
         <section id="header flex items-center" className={`${ isOpen ? "fixed h-screen overflow-y-auto w-full z-100": ""}`} >
             {/* login
-            <div className="bg-background-dark flex items-center justify-end-safe text-white py-2 md:py-5 xxs:py-2 relative">
+            <div className="bg-surface-dark flex items-center justify-end-safe text-white py-2 md:py-5 xxs:py-2 relative">
                  link to platfrom
               <p className="absolute xxs:left-10  sm:text-xl xxs:text-xs md:hidden"><Link href="/platform">Platform</Link></p>
                  TODO: Conditional on which of 2 to display later
@@ -71,8 +71,8 @@ export default function Navbar () {
 
             </div>*/}
 
-            <div className="nav-area flex bg-background-base relative">
-                <div className={`flex justify-center items-center ${isOpen ? "drop-shadow-lg drop-shadow-gray-500": ""} bg-background-base`}>
+            <div className="nav-area flex bg-surface-alt relative">
+                <div className={`flex justify-center items-center ${isOpen ? "drop-shadow-lg drop-shadow-gray-500": ""} bg-surface-alt`}>
                     {/* Brand Logo */}
                     <Link href="/"><Image src={logo} alt="entwine logo" className="logoImage" loading="eager" onClick={()=> handleNavLinkClick('/')}/></Link>
 

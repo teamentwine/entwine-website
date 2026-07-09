@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import posthog from "posthog-js";
 
@@ -9,19 +8,26 @@ export default function Volunteer() {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
+  const [resumeName, setResumeName] = useState('')
 
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isEmailValidFormat, setIsEmailValidFormat] = useState(true)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submitError, setSubmitError] = useState('')
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const companyHoneypotRef = useRef<HTMLInputElement>(null)
+  const resumeInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     posthog.capture('volunteer_page_viewed');
   }, []);
 
-  // Send the form data to Posthog
-  const handleFormSubmit = () => {
+  // Send the form data to Posthog, then create a Jira issue for it
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!isPhoneValid || !isEmailValidFormat) return
 
     /* form_name - declare the form name here to be represented in PostHog
     * [key]:[value] - [key] is the name of a property declared within a Property Group in PostHog
@@ -33,13 +39,59 @@ export default function Volunteer() {
       lastName: lastName,
       email : email,
       phone : phone,
-      subject : subject,
-      message : message,
+      hasResume: !!resumeInputRef.current?.files?.length,
     });
+
+    setStatus('submitting')
+    setSubmitError('')
+
+    try {
+      const formData = new FormData()
+      formData.set('formType', 'volunteer')
+      formData.set('firstName', firstName)
+      formData.set('lastName', lastName)
+      formData.set('email', email)
+      formData.set('phone', phone)
+      formData.set('message', message)
+      formData.set('company', companyHoneypotRef.current?.value ?? '')
+      const resumeFile = resumeInputRef.current?.files?.[0]
+      if (resumeFile) formData.set('resume', resumeFile)
+
+      const res = await fetch('/api/submit-form', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      setStatus('success')
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+      setPhone('')
+      setMessage('')
+      setResumeName('')
+      if (resumeInputRef.current) resumeInputRef.current.value = ''
+    } catch (err) {
+      setStatus('error')
+      setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    }
   };
 
   const handleIdealistClick = () => {
     posthog.capture('idealist_link_clicked');
+  };
+
+  const handleEmailClick = () => {
+    posthog.capture('email_link_clicked');
+  };
+
+  const handlePhoneClick = () => {
+    posthog.capture('phone_link_clicked');
   };
 
   /* Checks the phone input every half a second against a regex phone format */
@@ -87,20 +139,20 @@ export default function Volunteer() {
     <main className="bg-white overflow-x-hidden">
       {/* Title */}
       <section className="py-16 md:py-24 px-4">
-        <div className="flex flex-row md:flex-col gap-4 md:gap-8 max-w-6xl mx-auto">
-          <div className="text-left md:text-center lg:text-center flex-shrink min-w-0">
-            <h1 className="text-1xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-secondary-base)] mb-4 md:mb-6">
+        <div className="flex flex-col sm:flex-row md:flex-col gap-6 sm:gap-4 md:gap-8 max-w-6xl mx-auto">
+          <div className="text-center sm:text-left md:text-center lg:text-center flex-shrink min-w-0">
+            <h1 className="heading-eyebrow">
               WANT TO
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-black text-dark-text mb-4 md:mb-6 break-words">
+            <h2 className="heading-display">
               VOLUNTEER?
             </h2>
-            <p className="max-w-2xl md:mx-auto text-dark-text/80 text-sm md:text-base lg:text-lg">
-              If you're interested in the mission and want to help, please reach out.
+            <p className="max-w-2xl md:mx-auto text-ink/80 text-sm md:text-base lg:text-lg">
+              If you&apos;re interested in the mission and want to help, please reach out.
               We are open to anyone who would like to volunteer with us.
             </p>
-            <p className="mt-4 text-xs md:text-sm text-dark-text/70">
-              *If you're looking for specific positions, look at our postings on{" "}
+            <p className="mt-4 text-xs md:text-sm text-ink/70">
+              *If you&apos;re looking for specific positions, look at our postings on{" "}
               <a href="https://idealist.org" className="underline font-semibold" onClick={handleIdealistClick}>
                 Idealist
               </a>
@@ -108,10 +160,14 @@ export default function Volunteer() {
           </div>
 
           {/* Contact Box - small screen */}
-          <div className="md:hidden flex-shrink-0 w-48 sm:w-56 border-2 border-black rounded-2xl p-4 sm:p-6 shadow-[-6px_6px_0px_0px_var(--color-primary-base)] h-fit text-center">
+          <div className="card-outline md:hidden flex-shrink-0 w-full max-w-xs mx-auto sm:mx-0 sm:w-48 sm:self-start lg:w-56 p-4 sm:p-6 text-center">
             <h3 className="text-lg sm:text-xl font-bold mb-3">Contact Us</h3>
-            <p className="text-xs sm:text-xs mb-1">Phone: +1 (252) 368-9463</p>
-            <p className="text-xs sm:text-xs mb-3">Email: contact@projectentwine.org</p>
+            <p className="text-xs sm:text-xs mb-1">
+              Phone: <a href="tel:+12523689463" onClick={handlePhoneClick} className="hover:underline">+1 (252) 368-9463</a>
+            </p>
+            <p className="text-xs sm:text-xs mb-3">
+              Email: <a href="mailto:contact@projectentwine.org" onClick={handleEmailClick} className="hover:underline">contact@projectentwine.org</a>
+            </p>
             <h4 className="text-lg sm:text-xl font-bold mb-3">Socials</h4>
             <div className="flex gap-3 text-xl justify-center">
             <a href="https://www.facebook.com/profile.php?id=61566499317368" target="_blank" rel="noopener noreferrer">
@@ -138,32 +194,47 @@ export default function Volunteer() {
       {/* phone error msg */}
       { !isPhoneValid && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid phone number</p>}
       { !isEmailValidFormat && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">* Please enter a valid email format</p>}
+      { status === 'error' && <p className="text-left text-red-600 max-w-6xl mx-auto mb-5">{submitError}</p>}
+      { status === 'success' && <p className="text-left text-green-600 max-w-6xl mx-auto mb-5">Thanks! We received your submission and will be in touch soon.</p>}
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {/* Form */}
           <form
             id="volunteer-form"
             onSubmit={handleFormSubmit}
             className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* honeypot field - hidden from real users, catches bots */}
+            <input type="text" name="company" ref={companyHoneypotRef} tabIndex={-1} autoComplete="off"
+                   className="hidden" aria-hidden="true"/>
             {/*First Name */ }
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="First Name*" value={firstName} onChange={(e)=> setFirstName(e.target.value)}/>
+            <input className="field-input" placeholder="First Name*" value={firstName} onChange={(e)=> setFirstName(e.target.value)} required/>
             {/* Last Name */}
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Last Name*" value={lastName} onChange={(e)=> setLastName(e.target.value)} />
+            <input className="field-input" placeholder="Last Name*" value={lastName} onChange={(e)=> setLastName(e.target.value)} required/>
             {/* Email */}
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Email*" value={email} onChange={(e)=> setEmail(e.target.value)} />
+            <input type="email" className="field-input" placeholder="Email*" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
             {/* Phone */}
-            <input className="border-2 border-black rounded-lg p-3 w-full" placeholder="Phone*" value={phone} onChange={(e)=> setPhone(e.target.value)}/>
-            {/* Subject */}
-            <input className="border-2 border-black rounded-lg p-3 sm:col-span-2 w-full" placeholder="Subject*" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
+            <input className="field-input" placeholder="Phone" value={phone} onChange={(e)=> setPhone(e.target.value)}/>
             {/* Message */}
-            <textarea className="border-2 border-black rounded-lg p-3 sm:col-span-2 h-40 resize-none w-full" placeholder="Message*" value={message} onChange={(e)=> setMessage(e.target.value)} />
+            <textarea className="field-input sm:col-span-2 h-32 resize-none" placeholder="What are you interested in doing?*" value={message} onChange={(e)=> setMessage(e.target.value)} required/>
+            {/* Resume */}
+            <div className="sm:col-span-2">
+              <label htmlFor="resume" className="block text-sm font-semibold mb-2">Resume (optional, PDF or Word, max 4MB)</label>
+              <input type="file" id="resume" accept=".pdf,.doc,.docx" ref={resumeInputRef}
+                     onChange={(e) => setResumeName(e.target.files?.[0]?.name ?? '')}
+                     className="field-input"/>
+              {resumeName && <p className="text-xs text-ink/70 mt-1">Selected: {resumeName}</p>}
+            </div>
           </form>
 
           {/* Contact Box - medium+ screens */}
           <div>
-            <div className="hidden md:block border-2 border-black rounded-2xl p-8 shadow-[-6px_6px_0px_0px_var(--color-primary-base)] h-fit">
+            <div className="card-outline hidden md:block p-8">
               <h3 className="text-2xl font-bold mb-4">Contact Us</h3>
-              <p className="text-m mb-4">Phone: +1 (252) 368 9463</p>
-              <p className="text-m mb-4">Email: contact@projectentwine.org</p>
+              <p className="text-m mb-4">
+                Phone: <a href="tel:+12523689463" onClick={handlePhoneClick} className="hover:underline">+1 (252) 368-9463</a>
+              </p>
+              <p className="text-m mb-4">
+                Email: <a href="mailto:contact@projectentwine.org" onClick={handleEmailClick} className="hover:underline">contact@projectentwine.org</a>
+              </p>
 
               <h4 className="text-2xl font-bold mb-4">Socials</h4>
               <div className="flex gap-10 text-xl">
@@ -189,10 +260,9 @@ export default function Volunteer() {
               <button
                 type="submit"
                 form="volunteer-form"
-                className="w-1/4 md:w-full py-4 font-extrabold rounded-2xl border-2 border-black
-                bg-[var(--color-secondary-base-3)] shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
-                active:translate-y-2 active:shadow-none transition">
-                SUBMIT
+                disabled={status === 'submitting'}
+                className="btn-lift w-full sm:w-1/2 md:w-full py-4">
+                {status === 'submitting' ? 'SUBMITTING...' : 'SUBMIT'}
               </button>
             </div>
           </div>

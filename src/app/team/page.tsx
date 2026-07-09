@@ -18,8 +18,8 @@ export default function About (){
 
                     <div className="flex xxs:flex-col xs:flex-row justify-between xxs:space-y-5">
                         <div className="xxs:self-start xs:self-end lg:self-center xxs:space-y-5 space-y-10">
-                            {/*<p className="font-body text-secondary-base-2 xxs:text-base md:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>*/}
-                            <p className="font-body font-bold xxs:text-2xl sm:text-3xl md:text-4xl xl:text-5xl xxs:border-l-4 md:border-l-8 border-primary-base-2 pl-5">OUR TEAM</p>
+                            {/*<p className="font-body text-brand-orange-light xxs:text-base md:text-xl xl:text-3xl text-4xl font-thin">Learn More</p>*/}
+                            <p className="font-body font-bold xxs:text-2xl sm:text-3xl md:text-4xl xl:text-5xl xxs:border-l-4 md:border-l-8 border-brand-cyan-light pl-5">OUR TEAM</p>
                         </div>
                         
                        {/* img */}
@@ -38,10 +38,10 @@ export default function About (){
             <div className="flex flex-col ">
                 <div className="flex items-center xxs:ml-10 md:ml-20">
                     <p className="font-body font-bold xxs:text-3xl sm:text-5xl md:text-6xl xl:text-7xl mr-10">OUR</p>
-                    <div className="w-full xxs:h-1 md:h-2 bg-secondary-base"></div>
+                    <div className="w-full xxs:h-1 md:h-2 bg-brand-orange"></div>
                 </div>
                 <div className="flex items-center xxs:mr-10 md:mr-30 xl:mr-140">
-                    <div className="w-full xxs:h-1 md:h-2 bg-primary-base-2"></div>
+                    <div className="w-full xxs:h-1 md:h-2 bg-brand-cyan-light"></div>
                     <p className="font-body font-bold xxs:text-3xl sm:text-5xl md:text-6xl xl:text-7xl ml-10">FOUNDERS</p>
                 </div>
             </div>

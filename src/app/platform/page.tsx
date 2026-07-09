@@ -16,7 +16,7 @@ export default function Platform () {
             <div className="flex flex-col bg-[url('./assets/platformImg.jpg')] xxs:bg-no-repeat xxs:h-50 xs:h-70 lg:h-90 xl:h-100 2xl:h-120 xxs:bg-cover xxs:bg-center xxs:justify-center bg-cover bg-black/50 bg-blend-multiply">
                 {/* Text Heading */}
                 <div className="flex flex-col xxs:space-y-2 xxs:mx-auto ">
-                    <p className="font-body text-secondary-base xxs:text-lg xs:text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl">THE</p>
+                    <p className="font-body text-brand-orange-text xxs:text-lg xs:text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl">THE</p>
                     <p className="text-white font-medium font-body xxs:text-2xl xs:text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl">ENTWINE PLATFORM</p>
                 </div>
             </div>
@@ -26,7 +26,7 @@ export default function Platform () {
                 <div className="xxs:space-y-5 md:space-y-10 xxs:mt-5 md:m-10 lg:my-15  ">
                     {/* text group #1 */}
                     <p className="font-body"> To achieve our goals, we are building a digital platform that focuses on minimizing the effort to: </p>
-                    <ul className="list-disc marker:text-secondary-base font-light pl-10 md:flex md:justify-between">
+                    <ul className="list-disc marker:text-brand-orange-text font-light pl-10 md:flex md:justify-between">
                         <div className="md:space-y-5 md:w-[45%]">
                             <li className="bulleted-list">Make first contact</li>
                             <li className="bulleted-list">Coordinate actions</li>
@@ -37,7 +37,7 @@ export default function Platform () {
                     </ul>
                     {/* text group #2 */}
                     <p className="font-body">Based on these principles we've decided our platform will need to have a way to:</p>
-                    <ul className="list-disc marker:text-secondary-base  font-light pl-10 md:flex md:justify-between">
+                    <ul className="list-disc marker:text-brand-orange-text  font-light pl-10 md:flex md:justify-between">
                         <div className="md:space-y-5 md:w-[45%]">
                             <li className="bulleted-list">Recommend potential organizations you can collaborate with
                             </li>
@@ -59,8 +59,8 @@ export default function Platform () {
                  Heading and image
                 <div className="flex xxs:mx-5 sm:mx-10 md:mx-20 lg:ml-10 lg:mr-0 xxs:flex-col-reverse lg:flex-col lg:translate-y-40">
                     <div className="lg:mb-20">
-                        <p className="text-6xl xxs:text-xl sm:text-2xl md:text-5xl 2xl:text-6xl text-primary-base font-bold xxs:mb-5 md:mb-10">OUR</p>
-                        <p className="xxs:text-4xl md:text-7xl 2xl:text-8xl text-secondary-base font-bold">JOURNEY</p>
+                        <p className="text-6xl xxs:text-xl sm:text-2xl md:text-5xl 2xl:text-6xl text-brand-cyan-text font-bold xxs:mb-5 md:mb-10">OUR</p>
+                        <p className="xxs:text-4xl md:text-7xl 2xl:text-8xl text-brand-orange-text font-bold">JOURNEY</p>
                     </div>
                     <div className=" flex flex-col xxs:items-end lg:items-start">
                         <Image src={climbingImage} className="xxs:w-250 xl:w-400 2xl:w-500 xxs:justify-center" alt="three people climbing mountainside"/>
@@ -75,7 +75,7 @@ export default function Platform () {
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
                          circle marker
-                        <div className="benchmark-marker flex-none   bg-secondary-base border-1 rounded-full align-end"></div>
+                        <div className="benchmark-marker flex-none   bg-brand-orange border-1 rounded-full align-end"></div>
                          heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>
@@ -86,7 +86,7 @@ export default function Platform () {
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
                          circle marker
-                        <div className="benchmark-marker flex-none   bg-primary-base border-1 rounded-full align-end"></div>
+                        <div className="benchmark-marker flex-none   bg-brand-cyan border-1 rounded-full align-end"></div>
                          heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>
@@ -97,7 +97,7 @@ export default function Platform () {
                     <div className="flex benchmark-container">
                         <p className="benchmark-heading font-bold whitespace-nowrap">AUG 2025</p>
                          circle marker
-                        <div className="benchmark-marker flex-none   bg-secondary-base border-1 rounded-full align-end"></div>
+                        <div className="benchmark-marker flex-none   bg-brand-orange border-1 rounded-full align-end"></div>
                          heading and text
                         <div className="flex flex-col">
                             <p className="benchmark-heading whitespace-nowrap font-bold">Benchmark Heading</p>

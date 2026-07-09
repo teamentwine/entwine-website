@@ -27,8 +27,8 @@ export default function Home() {
             ENTWINE
           </h1>
           <p className="mt-4 sm:text-xl md:text-2xl lg:text-3xl">
-            <span className="text-[var(--color-primary-base-2)]">connect.</span>
-            <span className="text-[var(--color-secondary-base)]">collaborate.</span>
+            <span className="text-[var(--color-brand-cyan-light)]">connect.</span>
+            <span className="text-[var(--color-brand-orange)]">collaborate.</span>
             <span className="text-white">entwine</span>
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function Home() {
         {/* Observations */}
         <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold leading-snug">
           Entwine was founded on{' '}
-          <span className="text-[var(--color-secondary-base)]">two</span>{' '}observations:
+          <span className="text-[var(--color-brand-orange)]">two</span>{' '}observations:
         </h2>
 
         {/* Bullet Points */}
@@ -46,14 +46,14 @@ export default function Home() {
 
           <div className="flex flex-col gap-8 text-left flex-1">
             <div className="flex items-start gap-3">
-              <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-base-2)]" />
+              <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-brand-cyan-light)]" />
               <p className="text-black text-sm sm:text-base md:text-lg leading-snug">
                 Collaboration makes problem solving more effective
               </p>
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-base-2)]" />
+              <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[var(--color-brand-cyan-light)]" />
               <p className="text-black text-sm sm:text-base md:text-lg leading-snug">
                 But, the barriers to collaborate in the social good sector are too high to be feasible to many organizations
               </p>
@@ -82,8 +82,8 @@ export default function Home() {
             w-full max-w-xs sm:w-auto text-center
             inline-block px-7 py-3 rounded-full border-2 border-black
             text-black text-sm font-semibold
-            bg-[var(--color-secondary-base-3)]
-            shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
+            bg-[var(--color-brand-orange-pale)]
+            shadow-[0px_6px_0px_0px_var(--color-brand-orange)]
             active:translate-y-2 active:shadow-none transition">
             learn about the platform
           </a>
@@ -95,8 +95,8 @@ export default function Home() {
             w-full max-w-xs sm:w-auto text-center
             inline-block px-7 py-3 rounded-full border-2 border-black
             text-black text-sm font-semibold
-            bg-[var(--color-secondary-base-3)]
-            shadow-[0px_6px_0px_0px_var(--color-secondary-base)]
+            bg-[var(--color-brand-orange-pale)]
+            shadow-[0px_6px_0px_0px_var(--color-brand-orange)]
             active:translate-y-2 active:shadow-none transition">
             volunteer with us
           </a>
